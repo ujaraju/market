@@ -17,7 +17,7 @@ class ProductsController extends Controller
     * 
     */
 	public function index(){
-		//*http://localhost/market/public/products
+		//http://localhost/market/public/products
 		$products = Product::latest('published_at')->published()->get();
     	return view('products.index', compact('products'));
     }
