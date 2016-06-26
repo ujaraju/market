@@ -1,4 +1,4 @@
-@extends('onecol')
+@extends('layouts.onecol')
 
 @section('content')
 <div class="container-fluid">

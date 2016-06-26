@@ -1,4 +1,4 @@
-@extends ('onecol')
+@extends ('layouts.onecol')
 
 @section ('content')
 <h1>Edit {{ $product->title }}</h1>

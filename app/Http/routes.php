@@ -27,9 +27,6 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-
-
-	Route::get('/', function () { return view('home'); });
 	
 
 	Route::controllers ([
@@ -39,6 +36,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::resource('products','ProductsController');
 	Route::resource('categories','CategoriesController');
+	Route::resource('users','UsersController');
 	// Route::get  (	'products'            		,	'ProductsController@index'   );
 	// Route::get 	(	'products/create'     		,	'ProductsController@create'  );
 	// Route::get 	(	'products/{id}'     		,	'ProductsController@show'    );
@@ -46,8 +44,15 @@ Route::group(['middleware' => ['web']], function () {
 	// Route::get 	(	'products/{id}'     		,	'ProductsController@destroy' );
 	// Route::put 	(	'products/{id}'     		,	'ProductsController@update'  );
 	// Route::get 	(	'products/{id}/edit'		,	'ProductsController@edit'	 );
-
-
-
-
 });
+
+Route::auth();
+
+Route::get  ('/', 'PagesController@home');
+Route::get  ('/home', 'PagesController@home');
+Route::get  ('/about', 'PagesController@about');
+Route::get  ('/contact', 'PagesController@contact');
+
+
+
+

@@ -1,4 +1,4 @@
-@extends ('onecol')
+@extends ('layouts.onecol')
 
 
 @section('title', 'Product Title')

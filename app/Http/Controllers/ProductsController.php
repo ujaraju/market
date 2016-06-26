@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 use App\Product;
-
+use Auth;
 //use App\Http\Requests;
 use App\Http\Requests\ProductRequest;
 use Illuminate\HttpResponse;
 use App\Http\Controllers\Controller;
 
+
 class ProductsController extends Controller
 {
+
+
+    public function __construct(){
+        $this->middleware('auth', ['only'=>'create','only'=>'edit']);
+    }
+
+
+
+
     
 	/**
     * List products.
@@ -59,7 +69,8 @@ class ProductsController extends Controller
 		//$input['published_at'] = Carbon::now();
 		//$input['user_id'] = 1;
 
-		Product::create($request->all());
+		$product = new Product($request->all());
+        Auth::user()->products()->save($product);
     	return redirect('products');
     }
 

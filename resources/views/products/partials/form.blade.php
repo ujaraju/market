@@ -3,6 +3,7 @@
 </div>
 
 <div class="col-sm-9">
+    
     <div class="form-group">
     	{!! Form::label('title','Title') !!}
     	{!! Form::text('title',null,array('class' => 'form-control')) !!}
