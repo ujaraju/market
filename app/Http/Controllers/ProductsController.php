@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Product;
+use App\Category;
 use Auth;
-//use App\Http\Requests;
+use Flash;
 use App\Http\Requests\ProductRequest;
 use Illuminate\HttpResponse;
 use App\Http\Controllers\Controller;
@@ -12,22 +14,25 @@ use App\Http\Controllers\Controller;
 class ProductsController extends Controller
 {
 
+    /**
+    * Create new products controller instance.
+    *
+    * 
+    */
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>'create','only'=>'edit']);
+        $this->middleware('auth', ['only'=>'create', 'only'=>'edit']);
     }
-
 
 
 
     
 	/**
-    * List products.
+    * List all products.
     *
     * 
     */
 	public function index(){
-		//http://localhost/market/public/products
 		$products = Product::latest('published_at')->published()->get();
     	return view('products.index', compact('products'));
     }
@@ -35,12 +40,11 @@ class ProductsController extends Controller
 
 
 	/**
-    * Display product with ID.
+    * Display the product with ID.
     *
     * 
     */
-	public function show($id){
-		$product = Product::findOrFail($id);
+	public function show(Product $product){
     	return view('products.show', compact('product'));
     }
 
@@ -53,7 +57,9 @@ class ProductsController extends Controller
     * 
     */
 	public function create(){
-    	return view('products.create');
+
+        $categories = Category::lists('name','id');
+    	return view('products.create', compact('categories'));
     }
 
 
@@ -65,13 +71,12 @@ class ProductsController extends Controller
     * 
     */
 	public function store(ProductRequest $request){
-		//$input = Request::all();
-		//$input['published_at'] = Carbon::now();
-		//$input['user_id'] = 1;
 
-		$product = new Product($request->all());
-        Auth::user()->products()->save($product);
-    	return redirect('products');
+        $this->createProduct($request);
+
+        Flash::success('A product has been created');
+
+    	return redirect('dashboard');
     }
 
 
@@ -82,10 +87,18 @@ class ProductsController extends Controller
     *
     * 
     */
-	public function edit($id){
-		$product = Product::findOrFail($id);
-        return view('products.edit', compact('product'));
+	public function edit(Product $product){
+		$categories = Category::lists('name','id');
+
+        // make sure that the product can only be edited by the user who created it 
+        if (  $product->user_id == Auth::user()->id ){ 
+            return view('products.edit', compact('product','categories'));
+        }
+        else{
+            return redirect('dashboard');
+        }
     }
+
 
 
     /**
@@ -93,12 +106,39 @@ class ProductsController extends Controller
     *
     * 
     */
-    public function update($id, ProductRequest $request){
-        $product = Product::findOrFail($id);
+    public function update(Product $product, ProductRequest $request){
         $product->update($request->all());
-        return redirect('products');
+        $this->syncCategories($product, $request->input('category_list'));
+        return redirect('dashboard');
     }
 
 
+
+
+
+
+
+
+    /**
+    * Sync categories in the database .
+    *
+    * 
+    */
+    private function syncCategories(Product $product, array $categories){
+        $product->categories()->sync($categories);
+    }
+
+
+
+    /**
+    * create new product .
+    *
+    * 
+    */
+    private function createProduct(ProductRequest $request){
+        $product = Auth::user()->products()->create($request->all());
+        $this->syncCategories($product, $request->input('category_list'));
+        return $product;
+    }
 
 }

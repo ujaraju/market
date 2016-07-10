@@ -24,8 +24,7 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
-            'title'=>['required','min:3'],
-            'description'=>'required',
+            'name'=>['required','min:3'],
             'published_at'=>['required','date']
         ];
     }

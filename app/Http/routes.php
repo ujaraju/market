@@ -26,33 +26,35 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-	
-
-	Route::controllers ([
-		'auth' => 'Auth\AuthController',
-		'password' => 'Auth\PasswordController'
-	]);
-
-	Route::resource('products','ProductsController');
-	Route::resource('categories','CategoriesController');
-	Route::resource('users','UsersController');
-	// Route::get  (	'products'            		,	'ProductsController@index'   );
-	// Route::get 	(	'products/create'     		,	'ProductsController@create'  );
-	// Route::get 	(	'products/{id}'     		,	'ProductsController@show'    );
-	// Route::post (	'products'            		,	'ProductsController@store'   ); 
-	// Route::get 	(	'products/{id}'     		,	'ProductsController@destroy' );
-	// Route::put 	(	'products/{id}'     		,	'ProductsController@update'  );
-	// Route::get 	(	'products/{id}/edit'		,	'ProductsController@edit'	 );
-});
-
 Route::auth();
+	
+Route::controllers ([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);
+
+Route::resource('products','ProductsController');
+
+Route::resource('categories','CategoriesController');
+
+
+
+// Route::get  (	'products'            		,	'ProductsController@index'   );
+// Route::get 	(	'products/create'     		,	'ProductsController@create'  );
+// Route::get 	(	'products/{id}'     		,	'ProductsController@show'    );
+// Route::post (	'products'            		,	'ProductsController@store'   ); 
+// Route::get 	(	'products/{id}'     		,	'ProductsController@destroy' );
+// Route::put 	(	'products/{id}'     		,	'ProductsController@update'  );
+// Route::get 	(	'products/{id}/edit'		,	'ProductsController@edit'	 );
+
 
 Route::get  ('/', 'PagesController@home');
 Route::get  ('/home', 'PagesController@home');
 Route::get  ('/about', 'PagesController@about');
 Route::get  ('/contact', 'PagesController@contact');
 
+//Route::resource('users','UsersController');
+Route::get  ('/dashboard', 'UsersController@dashboard');
 
 
 

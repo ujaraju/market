@@ -22,12 +22,12 @@
                 
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Buy</a></li>
-                    <li><a href="{{ url('/home') }}">Rent</a></li>
+                    <li><a href="{{ url('/products') }}">Buy</a></li>
+                    <li><a href="{{ url('/products') }}">Rent</a></li>
                     <li><a href="{{ url('/products/create') }}">List</a></li>
                 </ul>
 
-                     @include('layouts.search')
+                     @include('layouts.partials.search')
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -38,12 +38,12 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Hi, {{ Auth::user()->username }} 
+                                Hi, {{ Auth::user()->name }} 
                                 <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/users', [Auth::user()->id] ) }}">Dashboard</a></li>
+                                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                                 <li><a href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </li>

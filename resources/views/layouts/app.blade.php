@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        @include('layouts.head')
+        @include('layouts.partials.head')
     </head>
 
 
     <body id="app-layout">
-        @include('layouts.header')
-        
-        @yield('main')
+        @include('layouts.partials.nav')
+
+        <div class="container">
+            @include('flash::message')
+       
+            @yield('main')
+
+            @include('errors.list')     
+        </div>
 
         <hr>
-        @include('layouts.footer')
+        @include('layouts.partials.footer')
+    
     </body>
+
+    
 
 </html>

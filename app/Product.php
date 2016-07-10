@@ -54,10 +54,18 @@ class Product extends Model
 
 
 	public function categories() {
-	  return $this->belongsToMany('Category', 'product_category');
+	  return $this->belongsToMany('App\Category')->withTimestamps();
 	}
 
 
+    /**
+     * Get list of the cat associated to the current product
+     *
+     * 
+     */
+    public function getCategoryListAttribute() {
+        return $this->categories->lists('id')->all();
+    }
 
 
 }

@@ -14,24 +14,20 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-
-            // Nested Set related fields
-            $table->integer('parent_id')->nullable();
-            $table->integer('lft')->nullable();
-            $table->integer('rgt')->nullable();
-            $table->integer('depth')->nullable();
-
-            // ... other fields which may feel suitable
-            $table->string('title');
-            $table->text('description');
+            $table->string('name');
             $table->timestamps();
-            
-            // Indexes
-            $table->index('parent_id');
-            $table->index('lft');
-            $table->index('rgt');
-
         });
+
+        Schema::create('category_product', function (Blueprint $table) {
+            $table->integer('product_id')->unsigned()->index();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            
+            $table->integer('category_id')->unsigned()->index();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -42,5 +38,6 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::drop('categories');
+        Schema::drop('category_product');
     }
 }
