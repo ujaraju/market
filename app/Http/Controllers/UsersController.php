@@ -26,14 +26,5 @@ class UsersController extends Controller
     }
 
 
-    /**
-    * Show user dashboard.
-    *
-    * 
-    */
-    public function dashboard(){
-        $user = Auth::user();
-        return view('users.dashboard',compact('user'));
-    }
 
 }

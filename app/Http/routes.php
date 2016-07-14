@@ -37,7 +37,7 @@ Route::resource('products','ProductsController');
 
 Route::resource('categories','CategoriesController');
 
-
+//Route::resource('users','UsersController');
 
 // Route::get  (	'products'            		,	'ProductsController@index'   );
 // Route::get 	(	'products/create'     		,	'ProductsController@create'  );
@@ -48,13 +48,14 @@ Route::resource('categories','CategoriesController');
 // Route::get 	(	'products/{id}/edit'		,	'ProductsController@edit'	 );
 
 
+/*static Pages*/
 Route::get  ('/', 'PagesController@home');
 Route::get  ('/home', 'PagesController@home');
 Route::get  ('/about', 'PagesController@about');
 Route::get  ('/contact', 'PagesController@contact');
 
-//Route::resource('users','UsersController');
-Route::get  ('/dashboard', 'UsersController@dashboard');
+/*Dashboard Pages*/
+Route::get  ('/dashboard', 'DashboardController@index');
 
 
 

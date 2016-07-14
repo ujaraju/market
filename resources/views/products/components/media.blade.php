@@ -1,1 +1,0 @@
-<img class="img-responsive" src="http://dummyimage.com/500x500/000/fff.jpg"/>

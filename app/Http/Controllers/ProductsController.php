@@ -21,7 +21,7 @@ class ProductsController extends Controller
     */
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>'create', 'only'=>'edit']);
+        $this->middleware('auth', ['only' => ['create', 'edit']]);
     }
 
 
@@ -57,7 +57,6 @@ class ProductsController extends Controller
     * 
     */
 	public function create(){
-
         $categories = Category::lists('name','id');
     	return view('products.create', compact('categories'));
     }

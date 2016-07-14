@@ -11,7 +11,7 @@ class Product extends Model
         'description',
         'price',
         'published_at',
-        'user_id',//temporary
+        //'user_id',//temporary
     ];
 
 

@@ -8,10 +8,10 @@
 @stop
 
 @section ('content')
-	<h1>Single: {{$product->name}}</h1>
+	<h1>Single: {{$product->title}}</h1>
 	<span class="label label-success">{{ $product->price }}</span>
 
-		{{-- 		
+		{{-- 				
 		@unless ($product->categories->isEmpty())
 			<ul class="list-inline">
 				<li>CATEGORIZED: </li>

@@ -25,4 +25,10 @@
             {!! Form::input('date', 'published_at', date('Y-m-d'), array('class' => 'form-control')) !!}
         </div>
 
+        <div class="form-group">
+            {!! Form::label('image','Image') !!}
+            {!! Form::file('image', array ('class' => 'form-control')) !!}
+        </div>
+         
+
         {!! Form::submit( $submitButtonText, array('class' => 'btn btn-success') ) !!}

@@ -161,7 +161,7 @@ return [
 
 
         Laracasts\Flash\FlashServiceprovider::class,
-
+        Laracasts\Generators\GeneratorsServiceProvider::class,
     ],
 
     /*

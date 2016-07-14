@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        Schema::create('images', function (Blueprint $table) {
+            $table->integer('id');
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -26,8 +26,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::drop('categories');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        Schema::drop('images');
     }
 }
