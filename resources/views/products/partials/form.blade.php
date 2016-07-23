@@ -20,15 +20,20 @@
         	{!! Form::text('price', null, array('class' => 'form-control')) !!}
         </div>
 
+
         <div class="form-group">
             {!! Form::label('published_at','Publish on') !!}
             {!! Form::input('date', 'published_at', date('Y-m-d'), array('class' => 'form-control')) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('image','Image') !!}
-            {!! Form::file('image', array ('class' => 'form-control')) !!}
+            {{ Form::file('images[]', array('class' => ' ','multiple'=>true)) }}
         </div>
+        
+{{--         <div class="form-group">
+            {!! Form::label('image_list','Images:') !!}
+            {!! Form::select('image_list[]', $images, null, array('class' => 'form-control','multiple')) !!}
+        </div> --}}
          
 
         {!! Form::submit( $submitButtonText, array('class' => 'btn btn-success') ) !!}

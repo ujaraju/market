@@ -8,10 +8,11 @@
 
 <h1>Create a new product here</h1>
 
-{!! Form::open(array('url' => 'products')) !!}
+{!! Form::open(array('url' => 'products', 'files'=>true)) !!}
     
     @include('products.partials.form', array('submitButtonText' => 'Add Product') )
     
 {!! Form::close() !!}
 
 @stop()
+

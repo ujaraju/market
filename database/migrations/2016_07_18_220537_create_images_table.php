@@ -13,7 +13,8 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->integer('id');
+            $table->increments('id');
+            $table->string('filename');
             $table->string('path');
             $table->timestamps();
         });
@@ -26,6 +27,8 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('images');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -53,6 +53,11 @@ class Product extends Model
     }
 
 
+    /**
+     * A product may belong to many categories.
+     *
+     * 
+     */
 	public function categories() {
 	  return $this->belongsToMany('App\Category')->withTimestamps();
 	}
@@ -65,6 +70,25 @@ class Product extends Model
      */
     public function getCategoryListAttribute() {
         return $this->categories->lists('id')->all();
+    }
+
+
+    /**
+     * A product may have many images.
+     *
+     * 
+     */
+    public function images() {
+      return $this->belongsToMany('App\Image','image_product');
+    }
+
+    /**
+     * Get list of the images associated to the current product
+     *
+     * 
+     */
+    public function getImageListAttribute() {
+        return $this->images->lists('id')->all();
     }
 
 

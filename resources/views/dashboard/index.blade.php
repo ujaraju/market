@@ -9,10 +9,10 @@
 
 	{{--get all the products by this user--}} 
 	<div class="row">
-		{{-- {{ $user->products }} //use this for angular.js --}}
-		@foreach( $user->products as $product)
-			@include('products.partials.list')
+		{{-- {{ $user->products }}  --}}
 
+		@foreach( $products as $product)
+			@include('products.partials.list')
 		@endforeach
 	</div>
 

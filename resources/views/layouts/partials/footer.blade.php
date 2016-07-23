@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-sm-6">
 			<address class="text-right">
-				© Copyright 2013 Scotchy Scotch Scotch
+				© Copyright 2013
 			</address>
 		</div>
 	</div>

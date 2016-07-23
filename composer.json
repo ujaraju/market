@@ -10,7 +10,9 @@
         "doctrine/dbal": "^2.5",
         "laravelcollective/html": "^5.2",
         "bestmomo/scafold": "dev-master",
-        "laracasts/flash": "^2.0"
+        "laracasts/flash": "^2.0",
+        "intervention/image": "^2.3",
+        "emanueleminotto/faker-placehold-it-provider": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

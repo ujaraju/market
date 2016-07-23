@@ -27,7 +27,9 @@ class ProductRequest extends Request
             'title'=>['required','min:3'],
             'description'=>'required',
             'price'=>'required',
-            'published_at'=>['required','date']
+            'published_at'=>['required','date'],
+            // 'category'=>['required'],
+            'images'=>['required'],
         ];
     }
 }

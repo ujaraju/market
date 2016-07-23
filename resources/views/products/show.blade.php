@@ -8,10 +8,23 @@
 @stop
 
 @section ('content')
+
+		
+		
+		@unless ($product->images->isEmpty())
+			<ul class="list-inline">
+			@foreach( $product->images as $image)
+				<li><img src="{{ url('/').$image->path }}"></li>
+			@endforeach
+			</ul>
+		@endunless
+						
+
+
 	<h1>Single: {{$product->title}}</h1>
 	<span class="label label-success">{{ $product->price }}</span>
 
-		{{-- 				
+						
 		@unless ($product->categories->isEmpty())
 			<ul class="list-inline">
 				<li>CATEGORIZED: </li>
@@ -22,7 +35,7 @@
 			@endforeach
 			</ul>
 		@endunless
-		 --}}
+		
 		
 		@include('products.partials.editlink')
 

@@ -19,8 +19,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('dashboard.index',compact('user'));
+
+        $user = Auth::user(); 
+        $products = $user->products()->latest()->get();
+        return view('dashboard.index',compact('products','user'));
+
     }
 
     /**

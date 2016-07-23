@@ -1,6 +1,12 @@
 
         <div class="col-sm-4">
             <div class="thumbnail">
+                
+            
+            
+
+
+                <hr>
                 <a href="{{ action ('ProductsController@show', [$product->id]) }}">
                     <h2>{{ $product->title }}</h2>
                 </a>
