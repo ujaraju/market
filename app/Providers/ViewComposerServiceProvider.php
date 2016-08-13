@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Product;
+use App\Property;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -14,8 +14,8 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('products.partials.listLatestProducts', function($view){
-            $view->with('latest', Product::latest()->take(6)->get() );
+        view()->composer('properties.partials.list-latest-properties', function($view){
+            $view->with('latestProperties', Property::latest()->take(6)->get() );
         });
 
     }

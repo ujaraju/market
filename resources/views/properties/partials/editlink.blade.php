@@ -1,6 +1,6 @@
                 @unless ( Auth::guest() )
-                    @if ( $product->user_id == Auth::user()->id )
-                        <a href="{{ action ('ProductsController@edit', [$product->id]) }}">
+                    @if ( $property->user_id == Auth::user()->id )
+                        <a href="{{ action ('PropertiesController@edit', [$property->id]) }}">
                             <small>EDIT</small>
                         </a>
                     @endif

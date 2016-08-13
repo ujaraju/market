@@ -9,7 +9,8 @@ class Category extends Model
 	protected $fillable= [
 		'name'
 	];
-	public function products() {
-	  return $this->belongsToMany('App\Product');
+
+	public function properties() {
+	  return $this->belongsToMany('App\Property');
 	}
 }

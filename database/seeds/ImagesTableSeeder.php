@@ -17,13 +17,13 @@ class ImagesTableSeeder extends Seeder
         DB::table('images')->delete();
 
         $faker = Faker::create();
-        $faker->addProvider(new EmanueleMinotto\Faker\PlaceholdItProvider($faker));
+        
 
         foreach(range(1, 50) as $index)
         {
 
             $images = Image::create([
-                'path' => $faker->imageUrl('1170X500', 'jpeg'),
+                'path' => $faker->imageUrl('970', '400','city'),
             ]);
         }
     }}

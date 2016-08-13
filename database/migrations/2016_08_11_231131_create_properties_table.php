@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class CreatePropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('properties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');
@@ -28,8 +28,6 @@ class CreateProductsTable extends Migration
                     ->onDelete('cascade');
             
         });
-
-
     }
 
     /**
@@ -40,7 +38,7 @@ class CreateProductsTable extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::drop('products');
+        Schema::drop('properties');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -26,12 +26,11 @@ class User extends Authenticatable
 
 
     /**
-     * A User can have many products.
+     * A User can have many properties.
      *
      * 
      */
-    public function products(){
-        return $this->hasMany('App\Product');
+    public function properties(){
+        return $this->hasMany('App\Property');
     }
-
 }

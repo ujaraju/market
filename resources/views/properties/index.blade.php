@@ -2,11 +2,11 @@
 
 	@section ('content')
 	
-	<h1>Product List</h1>
+	<h1>Properties List</h1>
 
 	<div class="row">
-		@foreach( $products as $product)
-			@include('products.partials.list')
+		@foreach( $properties as $property)
+			@include('properties.partials.list')
 		@endforeach
 	</div>
 

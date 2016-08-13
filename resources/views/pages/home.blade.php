@@ -4,6 +4,6 @@
     <h1>HOME PAGE</h1>
 
 
-    @include('products.partials.listLatestProducts')
+    @include('properties.partials.list-latest-properties')
 
 @endsection

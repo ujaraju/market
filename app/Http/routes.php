@@ -33,8 +33,8 @@ Route::controllers ([
 	'password' => 'Auth\PasswordController'
 ]);
 
-Route::resource('products','ProductsController');
 
+Route::resource('properties','PropertiesController');
 // Route::resource('categories','CategoriesController');
 
 //Route::resource('users','UsersController');
@@ -57,7 +57,7 @@ Route::get  ('/about', 'PagesController@about');
 Route::get  ('/contact', 'PagesController@contact');
 
 /*Dashboard Pages*/
-Route::get  ('/dashboard', 'DashboardController@index');
+Route::get  ('/dashboard', 'UsersController@dashboard');
 
 /*images*/
 Route::get  ('/images', 'ImagesController@index');

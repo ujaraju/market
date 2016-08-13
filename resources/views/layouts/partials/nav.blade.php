@@ -22,9 +22,9 @@
                 
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/products') }}">Buy</a></li>
-                    <li><a href="{{ url('/products') }}">Rent</a></li>
-                    <li><a href="{{ url('/products/create') }}">List</a></li>
+                    <li><a href="{{ url('/properties') }}">Buy</a></li>
+                    <li><a href="{{ url('/properties') }}">Rent</a></li>
+                    <li><a href="{{ url('/properties/create') }}">List</a></li>
                 </ul>
 
                      @include('layouts.partials.search')
