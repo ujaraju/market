@@ -1,10 +1,10 @@
-@extends ('layouts.app')
+@extends ('layouts.onecol')
 
 
 @section('title', $property->title)
 
 @section ('page-title')
-	{{$property->title}}
+	
 @stop
 
 @section ('content')
@@ -21,7 +21,7 @@
 						
 
 
-	
+	<h1>Single: {{$property->title}}</h1>
 	<span class="label label-success">{{ $property->price }}</span>
 						
 		@unless ($property->categories->isEmpty())

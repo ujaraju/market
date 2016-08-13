@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.onecol')
 
 @section('content')
     <h1>CONTACT PAGE</h1>
