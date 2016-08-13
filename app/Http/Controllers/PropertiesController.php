@@ -35,7 +35,7 @@ class PropertiesController extends Controller
     */
 	public function index(){
 		$properties = Property::latest('published_at')->published()->get();
-    	return view('properties.list', compact('properties'));
+    	return view('properties.index', compact('properties'));
     }
 
 

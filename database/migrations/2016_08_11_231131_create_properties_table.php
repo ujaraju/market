@@ -18,11 +18,9 @@ class CreatePropertiesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->float('price');
-            $table->double('lat',20,10);
-            $table->double('lng',20,10);
-            $table->timestamp('published_at');
             $table->timestamps();
-            
+            $table->timestamp('published_at');
+
             //delete any product belongs to the user
             $table->foreign('user_id')
                     ->references('id')

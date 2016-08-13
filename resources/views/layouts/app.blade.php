@@ -11,9 +11,7 @@
         <div class="container">
             @include('flash::message')
        
-                <h1>@yield('page-title')</h1>
-                
-                @yield('content')
+            @yield('main')
 
             @include('errors.list')     
         </div>

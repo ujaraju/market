@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-
-class Property extends Model
+class Product extends Model
 {
 	protected $fillable = [
         'title',
@@ -25,7 +24,7 @@ class Property extends Model
 
 
     /**
-     * Scope queries to propertys that have been published.
+     * Scope queries to products that have been published.
      *
      * 
      */
@@ -45,7 +44,7 @@ class Property extends Model
 
 
     /**
-     * A property is owned by the user.
+     * A product is owned by the user.
      *
      * 
      */
@@ -55,7 +54,7 @@ class Property extends Model
 
 
     /**
-     * A property may belong to many categories.
+     * A product may belong to many categories.
      *
      * 
      */
@@ -65,7 +64,7 @@ class Property extends Model
 
 
     /**
-     * Get list of the cat associated to the current property
+     * Get list of the cat associated to the current product
      *
      * 
      */
@@ -75,21 +74,22 @@ class Property extends Model
 
 
     /**
-     * A property may have many images.
+     * A product may have many images.
      *
      * 
      */
     public function images() {
-      return $this->belongsToMany('App\Image','image_property');
+      return $this->belongsToMany('App\Image','image_product');
     }
 
     /**
-     * Get list of the images associated to the current property
+     * Get list of the images associated to the current product
      *
      * 
      */
     public function getImageListAttribute() {
         return $this->images->lists('id')->all();
     }
+
 
 }
