@@ -1,4 +1,4 @@
-@extends ('twocol')
+@extends ('layouts.app')
 
 @section('title', 'Category Title')
 
