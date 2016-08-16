@@ -1,11 +1,25 @@
-@extends ('layouts.app')
+@extends('layouts.default')
 
+@section('title', $user->name)
 
-@section ('content')
-	<h1>USER DASHBOARD</h1>
+@section('helper')
+{{-- filter go here --}}
+@stop
 
+@section('hero')
+{{-- hero go here --}}
+<p>SOME IMAGE HERE</p>
+@stop
+
+@section('page-title')
+{{-- page-title go here --}}
+USER DASHBOARD
+@stop
+
+@section('content')
+{{-- contents go here --}}
 	<h2>Welcome : {{ $user->name }} </h2>
-	<p>SOME IMAGE HERE</p>
+	
 	{{--get all the products by this user--}} 
 	<div class="row">
 		{{-- {{ $user->properties }}  --}}
@@ -15,5 +29,11 @@
 		@endforeach
 
 	</div>
-
 @stop
+
+@section('footer')
+{{-- additional footer content go here eg: javascript --}}
+@stop
+
+
+

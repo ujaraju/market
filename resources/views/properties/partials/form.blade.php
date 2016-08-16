@@ -30,10 +30,29 @@
             {{ Form::file('images[]', array('class' => ' ','multiple'=>true)) }}
         </div>
         
-{{--         <div class="form-group">
+        {{--         
+        <div class="form-group">
             {!! Form::label('image_list','Images:') !!}
             {!! Form::select('image_list[]', $images, null, array('class' => 'form-control','multiple')) !!}
-        </div> --}}
-         
+        </div> 
+        --}}
+
+        {{-- Location MAP --}}
+        <div class="form-group">
+            {!! Form::label('searchmap','Map') !!}
+            {!! Form::text('searchmap', null, array('id'=>'searchmap','class' => 'form-control')) !!}
+        </div>
+
+        <div id="map-canvas" style="width:500px; height:300px;"></div> 
+
+        <div class="form-group form-inline">
+            {!! Form::label('lat','Lattitude') !!}
+            {!! Form::text('lat', null, array('id'=>'lat','class' => 'form-control', 'readonly'=>'true')) !!}
+        
+            {!! Form::label('lng','Longitude') !!}
+            {!! Form::text('lng', null, array('id'=>'lng','class' => 'form-control', 'readonly'=>'true')) !!}
+        </div>
+        {{-- Location MAP --}}
+
 
         {!! Form::submit( $submitButtonText, array('class' => 'btn btn-success') ) !!}

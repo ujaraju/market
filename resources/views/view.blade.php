@@ -12,7 +12,6 @@
 
 @section('page-title')
 {{-- page-title go here --}}
-ABOUT US
 @stop
 
 @section('content')

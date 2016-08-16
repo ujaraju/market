@@ -1,15 +1,13 @@
-@extends ('layouts.onecol')
-
+@extends('layouts.default')
 
 @section('title', $property->title)
 
-@section ('page-title')
-	
+@section('helper')
+{{-- filter go here --}}
 @stop
 
-@section ('content')
-
-		
+@section('hero')
+{{-- hero go here --}}
 		@unless ($property->images->isEmpty())
 			<ul class="list-inline">
 			@foreach( $property->images as $image)
@@ -18,10 +16,15 @@
 			@endforeach
 			</ul>
 		@endunless
-						
+@stop
 
+@section('page-title')
+	{{-- page-title go here --}}
+	<h1>{{$property->title}}</h1>
+@stop
 
-	<h1>Single: {{$property->title}}</h1>
+@section('content')
+{{-- contents go here --}}
 	<span class="label label-success">{{ $property->price }}</span>
 						
 		@unless ($property->categories->isEmpty())
@@ -40,5 +43,11 @@
 	<article>
 		<p>{{ $property->description }}</p>
 	</article>
-
 @stop
+
+@section('footer')
+{{-- additional footer content go here eg: javascript --}}
+@stop
+
+
+

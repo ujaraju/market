@@ -1,5 +1,26 @@
-@extends('layouts.onecol')
+@extends('layouts.default')
+
+@section('title', 'title tag of the page')
+
+@section('helper')
+{{-- filter go here --}}
+@stop
+
+@section('hero')
+{{-- hero go here --}}
+@stop
+
+@section('page-title')
+{{-- page-title go here --}}
+CONTACT US
+@stop
 
 @section('content')
-    <h1>CONTACT PAGE</h1>
-@endsection
+{{-- contents go here --}}
+@stop
+
+@section('footer')
+{{-- additional footer content go here eg: javascript --}}
+@stop
+
+

@@ -1,15 +1,28 @@
-@extends ('layouts.onecol')
+@extends('layouts.default')
 
-	@section ('content')
-	
-	<h1>Properties List</h1>
+@section('title', 'title tag of the page')
 
+@section('helper')
+{{-- filter go here --}}
+@stop
+
+@section('hero')
+{{-- hero go here --}}
+@stop
+
+@section('page-title')
+{{-- page-title go here --}}
+Properties List
+@stop
+
+@section('content')
 	<div class="row">
 		@foreach( $properties as $property)
 			@include('properties.partials.list')
 		@endforeach
 	</div>
+@stop
 
-@stop()
-
-
+@section('footer')
+{{-- additional footer content go here eg: javascript --}}
+@stop

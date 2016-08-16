@@ -73,10 +73,6 @@ class PropertiesController extends Controller
 
         $this->createProperty($request);
 
-
-
-
-
         Flash::success('A property has been created');
 
     	return redirect('dashboard');
@@ -150,21 +146,27 @@ class PropertiesController extends Controller
         /*  TAKE CARE OF THE IMAGES upload and assign to the property */
         $images = $request->file('images');
         foreach ($images as $image) {
-            
-            $ext = $image->getClientOriginalExtension();
-            
+
+            $ext = $image->getClientOriginalExtension();            
             //create a new filename sha1 version and date just incase of conflict 
             $filename = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
-            $path = ('uploads/' . $filename);        
+            
+            $path = ('uploads/properties/' . $filename);
+            $pathSmall = ('uploads/properties/small/' . $filename);        
 
-            $move = Img::make($image->getRealPath())->resize(980, 300)->save($path);
+            $move = Img::make($image->getRealPath())
+                    ->resize(null, 400,function($constraint){$constraint->aspectRatio();})->save($path);
 
-            //$move = $image->move('uploads', $image->getClientoriginalName());
+            $move = Img::make($image->getRealPath())
+                    ->resize(767, 400,function($constraint){$constraint->aspectRatio();})->save($pathSmall);
+
+
+
 
             //after the images uploaded, add them to the database 
             if ($move) {
                 $images = Image::create([
-                    'path' => url('/').'/'.$path,
+                    'path' => url($path),
                 ]);
                 //link the images to the property image pivot table
                 $property->images()->attach([$images->id]);

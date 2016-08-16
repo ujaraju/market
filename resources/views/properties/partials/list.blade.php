@@ -1,8 +1,9 @@
 
-        <div class="col-sm-4">
-            <div class="thumbnail">
-              
 
+
+        <div class="col-sm-6">
+            <div class="card">
+              
                 <a href="{{ action ('PropertiesController@show', [$property->id]) }}">
                     <h2>{{ $property->title }}</h2>
                 </a>
