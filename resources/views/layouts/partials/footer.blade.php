@@ -17,16 +17,30 @@
 
 </div>
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-    <script src="{{url('/js/sly.min.js')}}" type="text/javascript"></script>
-    <script src="{{url('/js/jquery.bxslider.min.js')}}" type="text/javascript"></script>
-    <script src="{{url('/js/swelldwell.js')}}" type="text/javascript"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 
+
+
+    <script src="{{ url(elixir('js/all.js')) }}"></script>
+    {{-- Google map api with places library --}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGlt5bb-aJdkbMZAOGAMhMHQ5ZUGPL0s&libraries=places" type="text/javascript"></script>
+
+    @if(! Request::is('properties/map') )
+        <script>
+            function initWhereTo() {
+                    // Create the autocomplete object, restricting the search to geographical
+                    // location types.
+                    autocomplete = new google.maps.places.Autocomplete(
+                        /** @type {!HTMLInputElement} */(document.getElementById('whereTo')),
+                        {types: ['geocode']});
+
+                    // When the user selects an address from the dropdown, populate the address
+                    // fields in the form.
+                    autocomplete.addListener('place_changed');
+            }
+            google.maps.event.addDomListener(window, 'load', initWhereTo )
+        </script>
+    @endif
 
 
     

@@ -14,6 +14,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        
         view()->composer('properties.partials.list-latest-properties', function($view){
             $view->with('latestProperties', Property::latest()->take(6)->get() );
         });

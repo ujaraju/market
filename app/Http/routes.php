@@ -34,18 +34,22 @@ Route::controllers ([
 ]);
 
 
+Route::get  ('properties/map', 'PropertiesController@map');
+
 Route::resource('properties','PropertiesController');
+
+
 // Route::resource('categories','CategoriesController');
 
 //Route::resource('users','UsersController');
 
-// Route::get  (	'products'            		,	'ProductsController@index'   );
-// Route::get 	(	'products/create'     		,	'ProductsController@create'  );
-// Route::get 	(	'products/{id}'     		,	'ProductsController@show'    );
-// Route::post (	'products'            		,	'ProductsController@store'   ); 
-// Route::get 	(	'products/{id}'     		,	'ProductsController@destroy' );
-// Route::put 	(	'products/{id}'     		,	'ProductsController@update'  );
-// Route::get 	(	'products/{id}/edit'		,	'ProductsController@edit'	 );
+// Route::get  (	'properties'            	,	'propertiesController@index'   	);
+// Route::get 	(	'properties/create'     	,	'propertiesController@create'  	);
+// Route::get 	(	'properties/{id}'     		,	'propertiesController@show'    	);
+// Route::post (	'properties'            	,	'propertiesController@store'   	); 
+// Route::get 	(	'properties/{id}'     		,	'propertiesController@destroy' 	);
+// Route::put 	(	'properties/{id}'     		,	'propertiesController@update'  	);
+// Route::get 	(	'properties/{id}/edit'		,	'propertiesController@edit'	 	);
 
 
 

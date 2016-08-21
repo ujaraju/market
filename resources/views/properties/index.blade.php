@@ -4,6 +4,7 @@
 
 @section('helper')
 {{-- filter go here --}}
+	@include('properties.partials.helper')	
 @stop
 
 @section('hero')
@@ -18,7 +19,9 @@ Properties List
 @section('content')
 	<div class="row">
 		@foreach( $properties as $property)
+			
 			@include('properties.partials.list')
+			
 		@endforeach
 	</div>
 @stop

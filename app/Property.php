@@ -12,6 +12,9 @@ class Property extends Model
         'description',
         'price',
         'published_at',
+        'address',
+        'lat',
+        'lng'
         //'user_id',//temporary
     ];
 

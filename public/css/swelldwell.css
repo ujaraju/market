@@ -1,9 +1,0 @@
-body{ padding-top:50px;}
-.container{ max-width: 970px!important}
-.page-title{ padding: 25px 0;}
-.page-title h2{ margin: 0;}
-.page-title h4{ margin-bottom: 0}
-
-ul#homeslideshow,
-ul#homeslideshow li{ width: 100%; height: 600px;}
-ul#homeslideshow li img{ width: 100%; }

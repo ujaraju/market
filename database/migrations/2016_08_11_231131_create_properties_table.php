@@ -17,7 +17,12 @@ class CreatePropertiesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('title');
             $table->text('description');
-            $table->float('price');
+            $table->integer('price');
+
+            $table->string('address');
+            $table->decimal('lat', 10, 7);
+            $table->decimal('lng', 10, 7);
+
             $table->timestamps();
             $table->timestamp('published_at');
 

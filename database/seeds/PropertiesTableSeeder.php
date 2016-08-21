@@ -23,7 +23,13 @@ class PropertiesTableSeeder extends Seeder
             	'user_id' => random_int(DB::table('users')->min('id'), DB::table('users')->max('id')),
                 'title' => $faker->catchPhrase,
                 'description' => $faker->text(400),
-                'price' => $faker->randomNumber(2),
+                'price' => $faker->randomNumber(8),
+
+                'address'=>$faker->Address(),
+                'lat'=>$faker->latitude($min = 27.65, $max = 27.75),    //somewhere in kathmandu
+                'lng'=>$faker->longitude($min = 85.25, $max = 85.35),  //somewhere in kathmandu
+                
+
                 'created_at'=>$faker->date(),
                 'updated_at'=>$faker->date(),
                 'published_at'=>$faker->date(),

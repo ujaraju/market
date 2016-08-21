@@ -19,12 +19,12 @@ class CategoriesTableSeeder extends Seeder
         $faker = Faker::create();
 
         Category::create([
-            'name' => 'Buy',
+            'name' => 'Sale',
             'created_at'=>$faker->date(),
             'updated_at'=>$faker->date()
         ]);
         Category::create([
-            'name' => 'Sell',
+            'name' => 'Rent',
             'created_at'=>$faker->date(),
             'updated_at'=>$faker->date()
         ]);

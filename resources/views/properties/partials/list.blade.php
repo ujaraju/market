@@ -3,7 +3,20 @@
 
         <div class="col-sm-6">
             <div class="card">
-              
+
+            {{-- {{$property}} --}}
+
+                @unless ($property->images->isEmpty())
+                    {{-- <ul class="list-unstyled slideshow">
+                        @foreach( $property->images as $image)
+                            <li><img src="{{ $image->path }}" class="img-responsive"></li>
+                        @endforeach                         
+                    </ul>  --}}  
+                    <a href="{{ action ('PropertiesController@show', [$property->id]) }}"> 
+                        <img src="{{$property->images->first()->path}}" class="img-responsive">
+                    </a>        
+                @endunless
+
                 <a href="{{ action ('PropertiesController@show', [$property->id]) }}">
                     <h2>{{ $property->title }}</h2>
                 </a>

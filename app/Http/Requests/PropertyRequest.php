@@ -28,8 +28,13 @@ class PropertyRequest extends Request
             'description'=>'required',
             'price'=>'required',
             'published_at'=>['required','date'],
-            // 'category'=>['required'],
+            //'category'=>['required'],
             'images'=>['required'],
+            
+            'address'=>['required'],
+            'lat'=>['required'],
+            'lng'=>['required'],
+
         ];
     }
 }

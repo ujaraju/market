@@ -39,11 +39,12 @@
 
         {{-- Location MAP --}}
         <div class="form-group">
-            {!! Form::label('searchmap','Map') !!}
-            {!! Form::text('searchmap', null, array('id'=>'searchmap','class' => 'form-control')) !!}
+            {!! Form::label('address','Address') !!}
+            {!! Form::text('address', null, array('id'=>'address','class' => 'form-control','placeholder'=>'')) !!}
         </div>
 
-        <div id="map-canvas" style="width:500px; height:300px;"></div> 
+        <small>Move the marker below to pin point the location of the property</small>
+        <div id="map-canvas" class="form-group" style="width:500px; height:300px;"></div> 
 
         <div class="form-group form-inline">
             {!! Form::label('lat','Lattitude') !!}
@@ -56,3 +57,4 @@
 
 
         {!! Form::submit( $submitButtonText, array('class' => 'btn btn-success') ) !!}
+

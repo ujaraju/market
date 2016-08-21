@@ -2,9 +2,9 @@
 
 @section('title', 'Home')
 
-@section('filters')
+@section('helper')
 {{-- filter go here --}}
-@endsection
+@stop
 
 @section('hero')
 {{-- hero go here --}}
@@ -13,16 +13,28 @@
 		<li><img src="{{url('/img/kathmandu4.jpg')}}" class="img-responsive"></li>
 		<li><img src="{{url('/img/kathmandu2.jpg')}}" class="img-responsive"></li>
 	</ul>
-@endsection
+	
+	@include('layouts.partials.search')
+
+	        
+@stop
 
 @section('page-title')
 {{-- page-title go here --}}
 	<div class="text-center">
 		<h2>LATEST PROPERTIES</h2>
-		<h4>Buy or rent your next dwelling from thousands of available properties.</h4>
+		<h4>Buy or rent your dwelling from thousands of avalable properties.</h4>
 	</div>
-@endsection
+@stop
 
 @section('content')
-    @include('properties.partials.list-latest-properties')
-@endsection
+{{-- contents go here --}}
+	@include('properties.partials.list-latest-properties')
+@stop
+
+
+@section('footer')
+{{-- additional footer content go here eg: javascript --}}
+@stop
+
+

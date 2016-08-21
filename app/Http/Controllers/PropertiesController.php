@@ -39,6 +39,25 @@ class PropertiesController extends Controller
     }
 
 
+    /**
+    * List all properties in map view.
+    *
+    * 
+    */
+    public function map(){
+        $properties = Property::latest('published_at')->published()->get();
+
+        $images = array();
+
+        foreach($properties as $property) {
+            $images[] = $property->images->first()->path;
+        }
+
+        //dd($images); // to see the contents
+
+        return view('properties.map', compact('properties'));
+    }
+
 
 	/**
     * Display the property with ID.
@@ -145,33 +164,39 @@ class PropertiesController extends Controller
 
         /*  TAKE CARE OF THE IMAGES upload and assign to the property */
         $images = $request->file('images');
-        foreach ($images as $image) {
+        
+        
+    
 
-            $ext = $image->getClientOriginalExtension();            
-            //create a new filename sha1 version and date just incase of conflict 
-            $filename = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
-            
-            $path = ('uploads/properties/' . $filename);
-            $pathSmall = ('uploads/properties/small/' . $filename);        
+            foreach ($images as $image) {
 
-            $move = Img::make($image->getRealPath())
-                    ->resize(null, 400,function($constraint){$constraint->aspectRatio();})->save($path);
+                $ext = $image->getClientOriginalExtension();            
+                //create a new filename sha1 version and date just incase of conflict 
+                $filename = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
+                
+                $path = ('uploads/properties/' . $filename);
+                $pathSmall = ('uploads/properties/small/' . $filename);        
 
-            $move = Img::make($image->getRealPath())
-                    ->resize(767, 400,function($constraint){$constraint->aspectRatio();})->save($pathSmall);
+                $move = Img::make($image->getRealPath())
+                        ->resize(null, 400,function($constraint){$constraint->aspectRatio();})->save($path);
+
+                $move = Img::make($image->getRealPath())
+                        ->resize(767, 400,function($constraint){$constraint->aspectRatio();})->save($pathSmall);
 
 
 
 
-            //after the images uploaded, add them to the database 
-            if ($move) {
-                $images = Image::create([
-                    'path' => url($path),
-                ]);
-                //link the images to the property image pivot table
-                $property->images()->attach([$images->id]);
+                //after the images uploaded, add them to the database 
+                if ($move) {
+                    $images = Image::create([
+                        'path' => url($path),
+                    ]);
+                    //link the images to the property image pivot table
+                    $property->images()->attach([$images->id]);
+                }
             }
-        }
+
+        
         /*  TAKE CARE OF THE IMAGES upload and assign to the property  */
 
 

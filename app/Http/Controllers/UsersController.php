@@ -24,8 +24,8 @@ class UsersController extends Controller
     {
 
         $user = Auth::user(); 
-        $properties = $user->properties()->latest()->get();
-        return view('users.dashboard',compact('properties','user'));
+        $properties = $user->properties()->latest('published_at')->published()->get();
+        return view('users.dashboard',compact('user','properties'));
 
     }
 

@@ -18,6 +18,10 @@
 {{-- contents go here --}}
 @stop
 
+@section('location')
+{{-- location goes here --}}
+@stop
+
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
 @stop

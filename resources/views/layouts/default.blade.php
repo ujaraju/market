@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="hero">
-			@yield ('hero') {{--for home/product/ page--}}
+			@yield ('hero') {{--for home/property/ page--}}
 	    </div>
 
 	    <div class="main"> {{--for all pages--}}
@@ -19,6 +19,10 @@
 		    		@yield('content')
 		    	</div>
 	    	</div>
+	    </div>
+
+	    <div class="location-container">{{--for property/contact pages--}}
+	    	@yield('location')
 	    </div>
         
 @endsection

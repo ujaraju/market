@@ -24,7 +24,7 @@ USER DASHBOARD
 	<div class="row">
 		{{-- {{ $user->properties }}  --}}
 
-		@foreach( $user->properties as $property)
+		@foreach( $properties as $property)
 			@include('properties.partials.list')
 		@endforeach
 

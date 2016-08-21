@@ -20,16 +20,17 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 
-                <!-- Left Side Of Navbar -->
-
-
-                     @include('layouts.partials.search')
+                @if(! Request::is('/') )
+                    {{-- dont show search in home page. search is in the hero. --}}
+                    @include('layouts.partials.search')
+                @endif
+                     
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li><a href="{{ url('/properties/create') }}">Add your property</a></li>
-                    <li><a href="{{ url('/properties/create') }}">Help</a></li>
+                    <li><a href="{{ url('/properties') }}">View all properties</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>

@@ -4,8 +4,13 @@
         @include('layouts.partials.head')
     </head>
 
+        @if(Request::is('/')) 
+            <body id="app-layout" class="home">
+        @else
+            <body id="app-layout" class="">
+        @endif
 
-    <body id="app-layout">
+    
         @include('layouts.partials.nav')
 
         @include('errors.list')
@@ -17,6 +22,7 @@
 
         <hr>
         @include('layouts.partials.footer')
+
     </body>
 
     
