@@ -17,7 +17,8 @@
 
 @section('content')
 
-
+     
+        
         <div id="map-canvas" style="width:100%; height:500px;"></div>
 
 @stop
@@ -33,7 +34,9 @@
             var map = new google.maps.Map(
                 document.getElementById('map-canvas'), {
                     center: pos,
-                    zoom: 14
+                    zoom: 14,
+                    scrollwheel: false,
+                    disableDoubleClickZoom: true
                 }
         
         	);
@@ -58,7 +61,7 @@
             
 
             var properties = {!! $properties !!};
-
+            var propertyImages =  {!! json_encode($image_url) !!};
     
 
 			var infowindow = new google.maps.InfoWindow;
@@ -77,9 +80,10 @@
 			    google.maps.event.addListener(marker, 'click', (function(marker, i) {
 
                 var infoContent = 
-                                    properties[i].title+ "<br>" +
-                                    properties[i].price+ "<br>" 
 
+                                    "<img src='"+propertyImages[i]+"'/>"+
+                                    "<strong>"+properties[i].title+ "</strong><br>" +
+                                    "<span class='badge'>"+properties[i].price+ "<span><br>"
                                     ;
 
 			         return function() {

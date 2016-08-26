@@ -12,7 +12,7 @@
 			<ul class="list-inline">
 			@foreach( $property->images as $image)
 				{{-- <li><img src="{{ url('/').$image->path }}"></li> --}}
-				<li><img src="{{ $image->path }}" class="img-responsive"></li>
+				<li><img src="{{ $image->url }}" class="img-responsive"></li>
 			@endforeach
 			</ul>
 		@endunless
@@ -20,29 +20,94 @@
 
 @section('page-title')
 	{{-- page-title go here --}}
+	@unless ($property->categories->isEmpty())
+		For: 
+		@foreach( $property->categories as $category)
+			<span>{{ $category->name }}</span>
+		@endforeach
+	@endunless
 	<h1>{{$property->title}}</h1>
+
+	<span class="label label-success">{{ $property->price }}</span>
+
 @stop
+
+
 
 @section('content')
 {{-- contents go here --}}
-	<span class="label label-success">{{ $property->price }}</span>
-						
-		@unless ($property->categories->isEmpty())
-			<ul class="list-inline">
-				<li>CATEGORIZED: </li>
-			@foreach( $property->categories as $category)
+	
+	
 
-				<li>{{ $category->name }}</li>
+	<div class="row">
+		<div class="col-sm-4">
+			<strong>DESCRIPTION</strong>
+		</div>
+		<div class="col-sm-8">
+			<p>{{ $property->description }}</p>
+		</div>
+	</div>	
 
-			@endforeach
-			</ul>
-		@endunless
+		<hr>
 
-	<article>
-		<p>{{ $property->description }}</p>
-		<p>{{ $property->lat }}</p>
-		<p>{{ $property->lng }}</p>
-	</article>
+	<div class="row">
+		<div class="col-sm-4">
+			<strong>FEATURES</strong>
+		</div>
+		<div class="col-sm-8">
+			<table class="table-features">
+			<tr>
+				<td>Bed(s): {{ $property->bed + 0 }}</td>
+				<td>Kitchen(s): {{ $property->kitchen + 0 }}</td>
+			</tr>
+			<tr>
+				<td>Bath(s): {{ $property->bath + 0 }}</td>
+				<td>Bath(s): {{ $property->bath + 0 }}</td>
+			</tr>
+			<tr>
+				<td>Garage: {{ $property->garage}}</td>
+				<td>Floor: {{ $property->floor}}</td>
+			</tr>
+			<tr>
+				<td>Use: {{ $property->use}}</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	
+		<hr>
+
+	<div class="row">	
+		<div class="col-sm-4">
+			<strong>ADDITIONAL FEATURES</strong>
+		</div>
+		<div class="col-sm-8">
+			<p>{{ $property->additional_features }}</p>
+		</div>
+	</div>
+
+		<hr>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<strong>UTILITIES</strong>
+		</div>
+		<div class="col-sm-8">
+			<p>{{ $property->description }}</p>
+		</div>
+	</div>
+
+		<hr>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<strong>AROUND THE PROPERTY</strong>
+		</div>
+		<div class="col-sm-8">
+			<p>{{ $property->description }}</p>
+		</div>
+	</div>	
+
 @stop
 
 @section('location')
@@ -66,7 +131,7 @@
             var map = new google.maps.Map(
                 document.getElementById('map-canvas'), {
                     center: pos,
-                    zoom: 12,
+                    zoom: 18,
 					scrollwheel: false,
 					disableDoubleClickZoom: true
                 }

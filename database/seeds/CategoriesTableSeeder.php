@@ -23,6 +23,7 @@ class CategoriesTableSeeder extends Seeder
             'created_at'=>$faker->date(),
             'updated_at'=>$faker->date()
         ]);
+        
         Category::create([
             'name' => 'Rent',
             'created_at'=>$faker->date(),

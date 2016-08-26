@@ -13,7 +13,7 @@
                         @endforeach                         
                     </ul>  --}}  
                     <a href="{{ action ('PropertiesController@show', [$property->id]) }}"> 
-                        <img src="{{$property->images->first()->path}}" class="img-responsive">
+                        <img src="{{$property->images->first()->url}}" class="img-responsive">
                     </a>        
                 @endunless
 

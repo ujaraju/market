@@ -14,8 +14,31 @@ class Property extends Model
         'published_at',
         'address',
         'lat',
-        'lng'
-        //'user_id',//temporary
+        'lng',
+
+            //facts
+        'plot_area',
+        'size_area',
+        'built_year',
+        'levels',
+
+
+            //features
+        'bed',
+        'bath',
+        'kitchen',
+        'garage',
+        'floor',
+        'use',
+
+            //additional features
+        'additional_features',
+
+            //utilities
+        'utilities',
+
+            //around the property
+        'around_property'
     ];
 
 

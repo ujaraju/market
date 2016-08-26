@@ -47,15 +47,12 @@ class PropertiesController extends Controller
     public function map(){
         $properties = Property::latest('published_at')->published()->get();
 
-        $images = array();
-
+        $image_url = array();
         foreach($properties as $property) {
-            $images[] = $property->images->first()->path;
+            $image_url[] = $property->images->first()->url;
         }
-
         //dd($images); // to see the contents
-
-        return view('properties.map', compact('properties'));
+        return view('properties.map', compact('properties','image_url'));
     }
 
 
@@ -125,6 +122,7 @@ class PropertiesController extends Controller
     public function update(Property $property, PropertyRequest $request){
         $property->update($request->all());
         $this->syncCategories($property, $request->input('category_list'));
+        $this->uploadImages($property, $request->file('images'));//TODO makelike asset mgmt in wordpress
         return redirect('dashboard');
     }
 
@@ -147,9 +145,9 @@ class PropertiesController extends Controller
     *
     * 
     */
-    private function syncImages(Property $property, array $images){
-        $property->images()->sync($images);
-    }
+    // private function syncImages(Property $property, array $images){
+    //     $property->images()->sync($images);
+    // }
 
 
     /**
@@ -159,78 +157,49 @@ class PropertiesController extends Controller
     */
     private function createProperty(PropertyRequest $request){
         $property = Auth::user()->properties()->create($request->all());
-
-
-
-        /*  TAKE CARE OF THE IMAGES upload and assign to the property */
-        $images = $request->file('images');
-        
-        
-    
-
-            foreach ($images as $image) {
-
-                $ext = $image->getClientOriginalExtension();            
-                //create a new filename sha1 version and date just incase of conflict 
-                $filename = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
-                
-                $path = ('uploads/properties/' . $filename);
-                $pathSmall = ('uploads/properties/small/' . $filename);        
-
-                $move = Img::make($image->getRealPath())
-                        ->resize(null, 400,function($constraint){$constraint->aspectRatio();})->save($path);
-
-                $move = Img::make($image->getRealPath())
-                        ->resize(767, 400,function($constraint){$constraint->aspectRatio();})->save($pathSmall);
-
-
-
-
-                //after the images uploaded, add them to the database 
-                if ($move) {
-                    $images = Image::create([
-                        'path' => url($path),
-                    ]);
-                    //link the images to the property image pivot table
-                    $property->images()->attach([$images->id]);
-                }
-            }
-
-        
-        /*  TAKE CARE OF THE IMAGES upload and assign to the property  */
-
-
-
-
         $this->syncCategories($property, $request->input('category_list'));
-
+        $this->uploadImages($property, $request->file('images'));
         return $property;
     }
 
-
-
-
-    // public function upload(){
-    // //This code will run after saving instance of property class,because we need to create the property id first.
-    //     $files = Input::file('images');
-    //             foreach($files as $file) {
-    //             $picture = new Picture;
-    //             $extension = $file->getClientOriginalExtension();
-    //                          //Creating sha1 version of the filename in case of conflicts
-    //             $sha1 = sha1($file->getClientOriginalName());
-    //             $filename=date('Y-m-d-h-i-s').".".$sha1.".".$extension;
-    //             $path = public_path('img/properties/' . $filename);
-    //                         // Using Intervention/image package here to resize the pictures
-    //             Image::make($file->getRealPath())->resize(468, 249)->save($path);
+    /**
+    * upload images in property .
+    *
+    * 
+    */
+    private function uploadImages(Property $property, array $images){
+        /*  TAKE CARE OF THE IMAGES upload and assign to the property */
+            //$images = $request->file('images');
+            foreach ($images as $image) {
+                $ext = $image->getClientOriginalExtension();            
+                //create a new filename sha1 version and date just incase of conflict 
+                $name = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
                 
-    //             $picture->path='img/properties/' . $filename;
+                $url = ('uploads/properties/' . $name);
+                $url_thumbnail= ('uploads/properties/thumbnail/' . $name);
+                $url_small= ('uploads/properties/small/' . $name);   
+                $url_medium = ('uploads/properties/medium/' . $name);        
+                
+                $move = Img::make($image->getRealPath())->save($url);
 
-    //             $picture->save();
+                $move = Img::make($image->getRealPath())->fit(200, 100)->save($url_thumbnail);
+                $move = Img::make($image->getRealPath())->resize(400, 200,function($constraint){$constraint->aspectRatio();})->save($url_small);
+                $move = Img::make($image->getRealPath())->resize(767, 400,function($constraint){$constraint->aspectRatio();})->save($url_medium);
+                //after the images uploaded, add them to the database 
+                if ($move) {
+                    $images = Image::create([
+                        'url' => url($url),
+                        'name' => $name,
+                    ]);
+                    //link the images to the property image pivot table
+                    $property->images()->detach([$images->id]); //detach any other images for update scenario
+                    $property->images()->attach([$images->id]); // attach new images
+                }
+            }
+        /*  TAKE CARE OF THE IMAGES upload and assign to the property  */
+    }
 
-    //             $property->picture()->attach($picture->id);
 
-    //             }
-    // }
 
 
 }

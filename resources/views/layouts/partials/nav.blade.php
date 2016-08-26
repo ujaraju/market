@@ -14,7 +14,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    BRAND
+                    <img src="{{url('/img/swelldwell.png')}}"/>
                 </a>
             </div>
 
@@ -30,7 +30,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li><a href="{{ url('/properties/create') }}">Add your property</a></li>
-                    <li><a href="{{ url('/properties') }}">View all properties</a></li>
+                    <li><a href="{{ url('/properties') }}">browse</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>

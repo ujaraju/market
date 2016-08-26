@@ -23,6 +23,32 @@ class CreatePropertiesTable extends Migration
             $table->decimal('lat', 10, 7);
             $table->decimal('lng', 10, 7);
 
+            //facts
+            $table->decimal('plot_area',10,2);
+            $table->decimal('size_area',10,2);
+            $table->integer('built_year');
+            $table->decimal('levels',2,1);
+
+
+            //features
+            $table->decimal('bed',2,1);
+            $table->decimal('bath',2,1);
+            $table->decimal('kitchen',2,1);
+            $table->string('garage');
+            $table->string('floor');
+            $table->string('use');
+
+            //additional features
+            $table->string('additional_features');
+
+            //utilities
+            $table->string('utilities');
+
+            //around the property
+            $table->string('around_property');
+
+
+
             $table->timestamps();
             $table->timestamp('published_at');
 

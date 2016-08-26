@@ -2,10 +2,8 @@
 
 @section('main')
 		
-		<div class="helper">
-			<div class="container">
-				@yield ('helper') {{--for product list/map page--}}
-			</div>
+		<div class="container">
+			@yield ('helper') {{--for product list/map page--}}
 		</div>
 
 		<div class="hero">

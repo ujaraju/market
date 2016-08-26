@@ -20,11 +20,8 @@
             @yield('main')
 
 
-        <hr>
         @include('layouts.partials.footer')
 
     </body>
-
-    
 
 </html>

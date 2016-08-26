@@ -11,6 +11,7 @@
 	<ul id="homeslideshow" class="list-unstyled">
 		<li><img src="{{url('/img/kathmandu3.jpg')}}" class="img-responsive"></li>
 		<li><img src="{{url('/img/kathmandu4.jpg')}}" class="img-responsive"></li>
+		<li><img src="{{url('/img/kathmandu1.jpg')}}" class="img-responsive"></li>
 		<li><img src="{{url('/img/kathmandu2.jpg')}}" class="img-responsive"></li>
 	</ul>
 	

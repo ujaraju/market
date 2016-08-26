@@ -19,11 +19,11 @@ class ImagesTableSeeder extends Seeder
         $faker = Faker::create();
         
 
-        foreach(range(1, 50) as $index)
+        foreach(range(1, 150) as $index)
         {
 
             $images = Image::create([
-                'path' => $faker->imageUrl('970', '400','city'),
+                'url' => $faker->imageUrl('970', '400','city'),
             ]);
         }
     }}

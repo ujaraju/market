@@ -1,22 +1,22 @@
-<div class="container">
-	<div class="row">
-		<div class="col-sm-6">
-			<ul class="list-inline">
-			    <li><a href="<?php echo url('about'); ?>">About</a></li>
-			    <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
-			    <li><a href="<?php echo url('about'); ?>">About</a></li>
-			    <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
-			</ul>
-		</div>
-		<div class="col-sm-6">
-			<address class="text-right">
-				© Copyright 2013
-			</address>
-		</div>
-	</div>
-
+<div class="footer">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-sm-6">
+    			<ul class="list-inline">
+    			    <li><a href="<?php echo url('about'); ?>">About</a></li>
+    			    <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
+    			    <li><a href="<?php echo url('about'); ?>">About</a></li>
+    			    <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
+    			</ul>
+    		</div>
+    		<div class="col-sm-6">
+    			<address class="text-right">
+    				© Copyright 2013
+    			</address>
+    		</div>
+    	</div>
+    </div>
 </div>
-
 
 
 
