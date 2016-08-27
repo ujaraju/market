@@ -7,8 +7,9 @@
         @if(Request::is('/')) 
             <body id="app-layout" class="home">
         @else
-            <body id="app-layout" class="">
+            <body id="app-layout" class="{{ substr( strrchr (Request::path(), "/"), 1) }}">
         @endif
+
 
     
         @include('layouts.partials.nav')

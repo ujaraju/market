@@ -23,7 +23,7 @@ class ImagesTableSeeder extends Seeder
         {
 
             $images = Image::create([
-                'url' => $faker->imageUrl('970', '400','city'),
+                'url' => $faker->imageUrl('940', '450','city'),
             ]);
         }
     }}

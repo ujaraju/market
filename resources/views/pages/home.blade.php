@@ -8,7 +8,7 @@
 
 @section('hero')
 {{-- hero go here --}}
-	<ul id="homeslideshow" class="list-unstyled">
+	<ul class="list-unstyled">
 		<li><img src="{{url('/img/kathmandu3.jpg')}}" class="img-responsive"></li>
 		<li><img src="{{url('/img/kathmandu4.jpg')}}" class="img-responsive"></li>
 		<li><img src="{{url('/img/kathmandu1.jpg')}}" class="img-responsive"></li>
@@ -36,6 +36,21 @@
 
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+
+        $('.hero ul').slick({
+        	arrows:false,
+        	autoplay:true,
+        	speed: 500,
+  			fade: true,
+  			cssEase: 'linear'
+        });
+
+ });       
+
+</script>
 @stop
 
 

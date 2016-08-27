@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
         //initial user
         User::create([
             'name' => 'Website Admin',
-            'email' => 'admin@admin.com',
+            'email' => 'squizeers@gmail.com',
             'password' => bcrypt('password'),
             'created_at'=>$faker->date(),
             'updated_at'=>$faker->date()

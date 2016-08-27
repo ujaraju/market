@@ -22,9 +22,8 @@ elixir(function(mix) {
     mix.scripts([
     		'jquery.js',
     		'bootstrap.min.js',
-	    	'jquery.bxslider.min.js',
-	    	'swelldwell.js'
-    	]);
+	    	'slick-slider.min.js'
+    ]);
 
     mix.version(['css/app.css', 'js/all.js']);
 

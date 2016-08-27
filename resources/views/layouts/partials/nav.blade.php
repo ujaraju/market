@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             
             <div class="navbar-header">
@@ -14,7 +14,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{url('/img/swelldwell.png')}}"/>
+                    swelldwell
                 </a>
             </div>
 
