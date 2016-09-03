@@ -2,7 +2,7 @@
 
         <div class="form-group">
             {!! Form::label('category_list','Categories:') !!}
-            {!! Form::select('category_list[]', $categories, null, array('class' => 'form-control','multiple')) !!}
+            {!! Form::select('category_list[]', $categories, null, array('class' => 'form-control')) !!}
         </div>
 
         <div class="form-group">
@@ -54,6 +54,73 @@
             {!! Form::text('lng', null, array('id'=>'lng','class' => 'form-control', 'readonly'=>'true')) !!}
         </div>
         {{-- Location MAP --}}
+
+        <div class="form-group">
+            {!! Form::label('built_year','Built Year') !!}
+            {!! Form::input('text', 'built_year', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('plot_area','Plot Area in Square Meter') !!}
+            {!! Form::input('text', 'plot_area', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('size_area','Building Size in Cubic Meter') !!}
+            {!! Form::input('text', 'size_area', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('levels','Levels') !!}
+            {!! Form::input('text', 'levels', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('bed','Number of bed rooms') !!}
+            {!! Form::input('text', 'bed', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('bath','Number of bathrooms') !!}
+            {!! Form::input('text', 'bath', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('kitchen','Number of kitchens') !!}
+            {!! Form::input('text', 'kitchen', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('garage','Garage') !!}
+            {!! Form::input('text', 'garage', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('floor','Floor type') !!}
+            {!! Form::input('text', 'floor', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('use','Use') !!}
+            {!! Form::input('text', 'use', null, array('class' => 'form-control')) !!}
+        </div>
+
+
+        <div class="form-group">
+            {!! Form::label('additional_features','Additional Features') !!}
+            {!! Form::textarea('additional_features', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('utilities','Utilities') !!}
+            {!! Form::textarea('utilities', null, array('class' => 'form-control')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('around_property','Around the property') !!}
+            {!! Form::textarea('around_property', null, array('class' => 'form-control')) !!}
+        </div>
+
 
 
         {!! Form::submit( $submitButtonText, array('class' => 'btn btn-success') ) !!}

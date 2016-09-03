@@ -8,7 +8,6 @@
 
 @section('hero')
 {{-- hero go here --}}
-<p>SOME IMAGE HERE</p>
 @stop
 
 @section('page-title')

@@ -25,7 +25,7 @@ class PropertiesTableSeeder extends Seeder
                 'description' => $faker->text(400),
                 'price' => $faker->randomNumber(8),
 
-                'address'=>$faker->Address(),
+                'address'=>$faker->Address(), 
                 'lat'=>$faker->latitude($min = 27.65, $max = 27.75),    //somewhere in kathmandu
                 'lng'=>$faker->longitude($min = 85.25, $max = 85.35),  //somewhere in kathmandu
                 
@@ -45,13 +45,13 @@ class PropertiesTableSeeder extends Seeder
                 'use'=>'Commercial & residential',
 
             //additional features
-            'additional_features'=>implode("|",$faker->randomElements($array = array ('Balcony', 'Dining room', 'Air conditioner', 'Living area', 'Central heating', 'Solar power', 'Laundry', 'Water reserve tank', 'Storage room', 'Pooja room'), $count = 10)) ,
+            'additional_features'=>implode(",",$faker->randomElements($array = array ('Balcony', 'Dining room', 'Air conditioner', 'Living area', 'Central heating', 'Solar power', 'Laundry', 'Water reserve tank', 'Storage room', 'Pooja room'), $count = 10)) ,
 
             //utilities
-            'utilities'=>implode("|",$faker->randomElements($array = array ('Water','Electricity','Phone', 'Cable', 'Internet'), $count = 5)),
+            'utilities'=>implode(",",$faker->randomElements($array = array ('Water','Electricity','Phone', 'Cable', 'Internet'), $count = 5)),
 
             //around the property
-            'around_property'=>implode("|",$faker->randomElements($array = array ('Ganesh Templae','Ram Mandir','Lulu Supermarket', 'Bus Stop', 'Library', 'Park', 'Museum', 'Jai Nepal Cinema', 'Hospital', 'Hiking Trail', 'Bhatbhateni Supermarket','Hot Ice Night Club', 'Restaurants', 'Cafe Baba','Peanuts Departmental Store','Gold\'s Gym', 'Public Youth Campus', 'Saraswati Biarding School'), $count = 10)),
+            'around_property'=>implode(",",$faker->randomElements($array = array ('Ganesh Templae','Ram Mandir','Lulu Supermarket', 'Bus Stop', 'Library', 'Park', 'Museum', 'Jai Nepal Cinema', 'Hospital', 'Hiking Trail', 'Bhatbhateni Supermarket','Hot Ice Night Club', 'Restaurants', 'Cafe Baba','Peanuts Departmental Store','Gold\'s Gym', 'Public Youth Campus', 'Saraswati Biarding School'), $count = 10)),
 
 
                 'created_at'=>$faker->date(),

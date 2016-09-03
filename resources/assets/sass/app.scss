@@ -8,6 +8,7 @@
 
 @import "swelldwell/variables";//overrides on bootstrap variables
 
+
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
@@ -59,7 +60,9 @@
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
+@import "font-awesome/scss/font-awesome";
 
 @import "swelldwell/slick-slider";
+@import "swelldwell/spacing";
 @import "swelldwell/custom";
 

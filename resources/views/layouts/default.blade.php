@@ -12,10 +12,12 @@
 
 	    <div class="main"> {{--for all pages--}}
 	    	<div class="container">
-		    	<div class="page-title">@yield('page-title')</div>
-		    	<div class="content">
+		    	
+		    	<div class="content p-y-2">
+		    		@yield('page-title')
 		    		@yield('content')
 		    	</div>
+		    	
 	    	</div>
 	    </div>
 

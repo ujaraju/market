@@ -1,26 +1,15 @@
 @extends('layouts.map')
 
-@section('title', 'title tag of the page')
+@section('title', 'Map')
 
 @section('helper')
 {{-- filter go here --}}
 	@include('properties.partials.helper')	
 @stop
 
-@section('hero')
-{{-- hero go here --}}
-@stop
 
-@section('page-title')
-{{-- page-title go here --}}
-@stop
-
-@section('content')
-
-     
-        
-        <div id="map-canvas" style="width:100%; height:500px;"></div>
-
+@section('content')    
+    <div id="map-canvas" style="width:100%; height:500px;"></div>
 @stop
 
 @section('footer')

@@ -7,9 +7,6 @@
 	@include('properties.partials.helper')	
 @stop
 
-@section('hero')
-{{-- hero go here --}}
-@stop
 
 @section('page-title')
 {{-- page-title go here --}}

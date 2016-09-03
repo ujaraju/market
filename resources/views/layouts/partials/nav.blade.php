@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             
             <div class="navbar-header">
@@ -29,8 +29,8 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     
-                    <li><a href="{{ url('/properties/create') }}">Add your property</a></li>
-                    <li><a href="{{ url('/properties') }}">browse</a></li>
+                    <li><a class="color-success" href="{{ url('/properties/create') }}">Add your property</a></li>
+                    {{-- <li><a href="{{ url('/properties') }}">browse</a></li> --}}
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>

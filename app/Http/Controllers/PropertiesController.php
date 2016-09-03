@@ -6,6 +6,7 @@ use App\Property;
 use App\Category;
 use App\Image;
 use Auth;
+use App\User;
 use Flash;
 use App\Http\Requests\PropertyRequest;
 use Illuminate\HttpResponse;
@@ -62,7 +63,8 @@ class PropertiesController extends Controller
     * 
     */
 	public function show(Property $property){
-    	return view('properties.show', compact('property'));
+        $user = User::findOrFail( $property->user_id);        
+    	return view('properties.show', compact('property','user'));
     }
 
 
@@ -184,7 +186,7 @@ class PropertiesController extends Controller
 
                 $move = Img::make($image->getRealPath())->fit(200, 100)->save($url_thumbnail);
                 $move = Img::make($image->getRealPath())->fit(400, 200,function($constraint){$constraint->aspectRatio();})->save($url_small);
-                $move = Img::make($image->getRealPath())->fit(940, 450,function($constraint){$constraint->aspectRatio();})->save($url_medium);
+                $move = Img::make($image->getRealPath())->fit(940, 480,function($constraint){$constraint->aspectRatio();})->save($url_medium);
                 //after the images uploaded, add them to the database 
                 if ($move) {
                     $images = Image::create([

@@ -2,14 +2,6 @@
 
 @section('title', 'Create a new property')
 
-@section('helper')
-{{-- filter go here --}}
-@stop
-
-@section('hero')
-{{-- hero go here --}}
-@stop
-
 @section('page-title')
 {{-- page-title go here --}}
 Create a new property

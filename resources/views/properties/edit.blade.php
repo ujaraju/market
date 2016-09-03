@@ -2,14 +2,6 @@
 
 @section('title', 'Edit:'.$property->title )
 
-@section('helper')
-{{-- filter go here --}}
-@stop
-
-@section('hero')
-{{-- hero go here --}}
-@stop
-
 @section('page-title')
 {{-- page-title go here --}}
 Edit: {{ $property->title }} 
