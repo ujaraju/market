@@ -7,7 +7,7 @@
         @if(Request::is('/')) 
             <body id="app-layout" class="home">
         @else
-            <body id="app-layout" class="{{ substr( strrchr (Request::path(), "/"), 1) }}">
+            <body id="app-layout">
         @endif
 
 

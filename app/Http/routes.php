@@ -38,6 +38,7 @@ Route::get  ('properties/map', 'PropertiesController@map');
 
 Route::resource('properties','PropertiesController');
 
+Route::resource('users','UsersController');
 
 // Route::resource('categories','CategoriesController');
 
@@ -64,8 +65,8 @@ Route::get  ('/contact', 'PagesController@contact');
 Route::get  ('/dashboard', 'UsersController@dashboard');
 
 /*images*/
-Route::get  ('/images', 'ImagesController@index');
-Route::get  ('/images/create', 'ImagesController@create');
+// Route::get  ('/images', 'ImagesController@index');
+// Route::get  ('/images/create', 'ImagesController@create');
 
 
 

@@ -22,104 +22,101 @@
 
 @section('page-title')
 	{{-- page-title go here --}}
-	<div class="row">
-
-
-		<div class="col-sm-8 m-b-2 col-sm-push-4 col-md-push-4">
-			
-			<h3 class="m-b-1">{{$property->title}}</h3>
-			
-			<div class="row">
-				<div class="col-xs-6">
-
-                    @unless ($property->categories->isEmpty())
-                        @foreach( $property->categories as $category)
-                            
-                            @if( $category->id == 1) {{--1 = rent, 2 = sale --}}
-                            	<h4>Rs. {{ number_format ( $property->price ).'/mth' }}</h4>
-                            @else
-                            	<h4>Rs. {{ number_format ( $property->price )}}</h4>
-                            @endif
-
-                        @endforeach
-                    @endunless
-
-
-					
+<div class="p-y-2 bg-white border-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-push-4 col-md-push-4">
+				
+				<div class="m-b-1">
+					<h3>{{$property->title}}</h3>
+					<small>{{$property->address}}</small>
 				</div>
-				<div class="col-xs-6">
-					<ul class="list-inline list-icon-buttons m-a-0">
-						<li>Share this on</li>
-						<li><a href="#" class=""> <i class="fa fa-facebook"></i> </a></li>
-						<li><a href="#" class=""> <i class="fa fa-twitter"></i> </a></li>
-						<li><a href="#" class=""> <i class="fa fa-google"></i> </a></li>
-					</ul>
-				</div>
-			</div>	
+				<hr>
+				<div class="row">
+					<div class="col-xs-6">
 
-		</div>
+	                    @unless ($property->categories->isEmpty())
+	                        @foreach( $property->categories as $category)
+	                            <small>For {{$category->name}}</small>
+	                            @if( $category->id == 1) {{--1 = rent, 2 = sale --}}
+	                            	<h4 class="m-a-0">Rs. {{ number_format ( $property->price ) }}</h4>
+	                            @else
+	                            	
+	                            	<h4 class="m-a-0">Rs. {{ number_format ( $property->price ).'/mth' }}</h4>
+	                            @endif
 
-		
+	                        @endforeach
+	                    @endunless
+
+
+						
+					</div>
+					<div class="col-xs-6">
+						<ul class="list-inline list-icon-buttons m-a-0 m-t-1">
+							<li>Share this on</li>
+							<li><a href="#" class=""> <i class="fa fa-facebook"></i> </a></li>
+							<li><a href="#" class=""> <i class="fa fa-twitter"></i> </a></li>
+							<li><a href="#" class=""> <i class="fa fa-google"></i> </a></li>
+						</ul>
+					</div>
+				</div>	
+
+			</div>
+
+	
 			<hr class="visible-xs">
 		
 
-		<div class="col-sm-4 m-b-2 col-sm-pull-8 col-md-pull-8">
+			<div class="col-sm-4 col-sm-pull-8 col-md-pull-8">
 
-			<div class="media">
-				<div class="media-left">
-					<a href="#">
-						<img class="media-object" src="{{url('/uploads/users/andrew.png')}}" alt="">
-					</a>
-			  	</div>
-				<div class="media-body">
-					<small>Seller</small>
-			    	<p class="media-heading">
-			    		{{ $user->name }}
-			    	</p>
-			    	<ul class="list-inline list-icon-buttons m-b-0">
-			    		<li><a href="#"><i class="fa fa-envelope"></i></a></li>
-			    		<li><a href="#"><i class="fa fa-phone"></i></a></li>
-			    	</ul>
-			  	</div>
+				@include('users.partials.profile')
+
 			</div>
 
 		</div>
+	</div>	
+</div>
 
 
+
+<div class="text-center border-bottom">
+	<div class="container">	
+		<div class="row row-outlined">
+			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">
+				<h2>{{$property->plot_area+0}}</h2>
+				<small>PLOT Sq.M</small>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">
+				<h2>{{$property->size_area+0}}</h2>
+				<small>SIZE Cu.M</small>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">
+				<h2>{{$property->built_year}}</h2>
+				<small>BUILT YEAR</small>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">
+				<h2>{{$property->levels+0}}</h2>
+				<small>LEVEL(S)</small>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">
+				<h2>{{$property->bed+0}}</h2>
+				<small>BED(S)</small>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">
+				<h2>{{$property->bath+0}}</h2>
+				<small>BATH(S)</small>
+			</div>
+		</div>
 	</div>
+</div>
+
 @stop
 
 
 @section('content')
 {{-- contents go here --}}
-
 	
-		<div class="row text-center row-outlined m-b-2">
-			<div class="col-xs-6 col-sm-4 col-md-2 p-y-1">
-				<h2>{{$property->plot_area+0}}</h2>
-				<small>PLOT Sq.M</small>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 p-y-1">
-				<h2>{{$property->size_area+0}}</h2>
-				<small>SIZE Cu.M</small>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 p-y-1">
-				<h2>{{$property->built_year}}</h2>
-				<small>BUILT YEAR</small>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 p-y-1">
-				<h2>{{$property->levels+0}}</h2>
-				<small>LEVELS</small>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 p-y-1">
-				<h2>{{$property->bed+0}}</h2>
-				<small>BED(S)</small>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-2 p-y-1">
-				<h2>{{$property->bath+0}}</h2>
-				<small>BATH(S)</small>
-			</div>
-		</div>
+
 	
 
 	
@@ -220,14 +217,13 @@
 @stop
 
 @section('location')
-{{-- additional footer content go here eg: javascript --}}
-	<div id="map-canvas" style="width:100%; height:300px;" ></div>
-
+	<div class="location-container">
+		<div id="map-canvas" style="width:100%; height:300px;" ></div>
+	</div>
 @stop
 
 
 @section('footer')
-{{-- additional footer content go here eg: javascript --}}
 {{-- additional footer content go here eg: javascript --}}
 <script type="text/javascript">
 

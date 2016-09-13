@@ -2,12 +2,8 @@
 
 @section('main')
 		
-		
-		@yield ('helper') {{--for product list/map page--}}
-		
-
 		<div class="hero border-bottom">
-			@yield ('hero') {{--for home/property/ page--}}
+			@include('users.partials.profile')
 	    </div>
 
 	    <div class="main"> {{--for all pages--}}

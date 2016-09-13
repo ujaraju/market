@@ -4,22 +4,26 @@
 
 @section('page-title')
 {{-- page-title go here --}}
-Edit: {{ $property->title }} 
+
 @stop
 
 @section('content')
+<h3>Edit: {{ $property->title }} </h3>
 {{-- contents go here --}}
+    <div class="m-y-3">
 	{!! Form::model($property, array ('method' => 'PATCH', 'action' => ['PropertiesController@update', $property->id], 'files'=>true)) !!}
 	    
 	    @include('properties.partials.form', array('submitButtonText' => 'Update Product') )
 
 	{!! Form::close() !!}
+    </div>
 @stop
 
 
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
         <script>
+
         google.maps.event.addDomListener(window, 'load', initAddress )
 
 

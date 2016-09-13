@@ -6,6 +6,7 @@ $gray-dark:              $gray-base !default;
 
 $navbar-default-link-color: $gray-base !default;
 
+$brand-primary: $gray-base;
 $brand-success: #26d326;
 $btn-default-bg: transparent;
 
@@ -15,4 +16,6 @@ $border-radius-small:       0!default;
 
 $navbar-inverse-color:      #fff;
 
-$hr-border-color: #ddd;
+
+$hr-border-color: #e6e6e6;
+$gray-lighter:$hr-border-color;

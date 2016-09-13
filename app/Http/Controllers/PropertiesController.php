@@ -75,6 +75,7 @@ class PropertiesController extends Controller
     * 
     */
 	public function create(){
+        //$user = Auth::user(); 
         $categories = Category::lists('name','id');
     	return view('properties.create', compact('categories'));
     }
@@ -105,6 +106,7 @@ class PropertiesController extends Controller
     */
 	public function edit(Property $property){
 		$categories = Category::lists('name','id');
+        //$user = Auth::user();
         // make sure that the property can only be edited by the user who created it 
         if (  $property->user_id == Auth::user()->id ){ 
             return view('properties.edit', compact('property','categories'));

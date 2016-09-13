@@ -28,8 +28,8 @@
 
 @section('page-title')
 {{-- page-title go here --}}
-	<div class="text-center m-y-1">
-		<h3>LATEST PROPERTIES</h3>
+	<div class="text-center m-t-3">
+		<h3 class="m-b-1">LATEST PROPERTIES</h3>
 		<h4>Buy or rent your dwelling from thousands of avalable properties.</h4>
 	</div>
 @stop

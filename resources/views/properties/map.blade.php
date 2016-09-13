@@ -3,7 +3,7 @@
 @section('title', 'Map')
 
 @section('helper')
-{{-- filter go here --}}
+    {{-- filter go here --}}
 	@include('properties.partials.helper')	
 @stop
 

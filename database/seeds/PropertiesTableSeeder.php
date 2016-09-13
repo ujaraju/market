@@ -15,7 +15,10 @@ class PropertiesTableSeeder extends Seeder
 
     	DB::table('properties')->delete();
 
-        $faker = Faker::create();
+        //$faker = Faker::create();
+
+        $faker = Faker::create('ne_NP'); // create a French faker
+
 
         foreach(range(1, 50) as $index)
         {

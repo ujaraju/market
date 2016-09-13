@@ -1,7 +1,18 @@
  @import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 280px;
+}
+
  body {
      padding-top: 50px;
-     background: #f7f7f7;
+     background: #f6f6f6;
+     margin-bottom: 280px;
  }
  
  hr {
@@ -16,6 +27,9 @@
      font-family: 'Montserrat', sans-serif;
      font-weight: 400;
  }
+
+.border-bottom { border-bottom : 1px solid $gray-lighter; }
+.bg-white{ background: #fff;}
 
 .label{
    border-radius: 0; 
@@ -37,9 +51,7 @@
      max-width: 970px!important;
  }
  
- .page-title {
-     padding: $padding-large-vertical * 2 0 0;
- }
+
  
  .helper {
      padding: $padding-large-vertical 0;
@@ -53,6 +65,22 @@
  }
  
  .hero {
+    background-color: hsl(34, 5%, 82%);
+    background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.10) 5px, hsla(197, 62%, 11%, 0.10) 10px,                  
+      hsla(5, 5%, 63%, 0) 10px, hsla(5, 5%, 63%, 0) 35px, hsla(5, 5%, 63%, 0.10) 35px, hsla(5, 5%, 63%, 0.10) 40px,
+      hsla(197, 62%, 11%, 0.10) 40px, hsla(197, 62%, 11%, 0.10) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
+      hsla(5, 5%, 63%, 0.10) 60px, hsla(5, 5%, 63%, 0.10) 70px, hsla(35, 91%, 0%, 0.10) 70px, hsla(35, 91%, 0%, 0.10) 80px,
+      hsla(35, 91%, 0%, 0) 80px, hsla(35, 91%, 0%, 0) 90px, hsla(5, 5%, 63%, 0.10) 90px, hsla(5, 5%, 63%, 0.10) 110px,
+      hsla(5, 5%, 63%, 0) 110px, hsla(5, 5%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.10) 120px, hsla(197, 62%, 11%, 0.10) 140px       
+      ),
+    repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.10) 5px, hsla(197, 62%, 11%, 0.10) 10px, 
+      hsla(5, 5%, 63%, 0) 10px, hsla(5, 5%, 63%, 0) 35px, hsla(5, 5%, 63%, 0.10) 35px, hsla(5, 5%, 63%, 0.10) 40px,
+      hsla(197, 62%, 11%, 0.10) 40px, hsla(197, 62%, 11%, 0.10) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
+      hsla(5, 5%, 63%, 0.10) 60px, hsla(5, 5%, 63%, 0.10) 70px, hsla(35, 91%, 0%, 0.10) 70px, hsla(35, 91%, 0%, 0.10) 80px,
+      hsla(35, 91%, 0%, 0) 80px, hsla(35, 91%, 0%, 0) 90px, hsla(5, 5%, 63%, 0.10) 90px, hsla(5, 5%, 63%, 0.10) 110px,
+      hsla(5, 5%, 63%, 0) 110px, hsla(5, 5%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.10) 140px, hsla(197, 62%, 11%, 0.10) 160px       
+    );
+
      ul {
          margin-bottom: 0
      }
@@ -88,7 +116,7 @@
                  max-height: 600px;
                  img {
                      width: 100%;
-                     opacity: 0.50;
+                     opacity: 0.5;
                      filter: contrast(120%);
                  }
              }
@@ -99,10 +127,18 @@
  .card {
      background: #fff;
      position: relative;
-     h4 a {
-         color: $gray-base;
+     h4 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        a {
+        color: $gray-base;
+        }
      }
-     .label{ position: absolute; right:0px; top:15px;}
+     hr{ border-color:#eee;}
+
+     .label{ position: absolute; right:0px; bottom:20px;}
+     .card-content{ border:1px solid $gray-lighter}
  }
  
  .media-left,
@@ -113,8 +149,8 @@
  
  .media .media-left,
  .media .media-right {
-     a {
-         background: #ccc;
+     img {
+         background: $gray-light;
          border-radius: 50%;
          padding: 5px;
          display: block
@@ -135,8 +171,8 @@
 .row.row-outlined {
     margin:0;
     > div { 
-        border:1px solid $hr-border-color;
-        margin-left: -1px;
+        border-left:1px solid $hr-border-color;
+        &:first-child{ border:0;}
     }
 }
  
@@ -155,7 +191,7 @@
      vertical-align: middle;
      line-height: 1;
      color: #000;
-     border:1px solid #000;
+     border:1px solid #ddd;
  }
  
  .location-container {
@@ -180,8 +216,12 @@
  }
  
  .footer {
-     color: #fff;
-     background: $gray-base;
+    height: 280px;
+    color: #fff;
+    background: $gray-base;
+    position:absolute;
+    width: 100%;
+    bottom:0;
      a,
      ul,
      address {
@@ -190,9 +230,10 @@
      }
      .links ul li { 
             padding:0;
-            a{border-left:1px solid #ccc; padding:0 10px 0 15px;}
+            a{border-left:1px solid $gray-lighter; padding:0 10px 0 15px;}
             &:first-child a { border:none;  }
         }
  }
- 
+ .login{ max-width:360px;}
+
  @media (max-width: $screen-xs-max) {}

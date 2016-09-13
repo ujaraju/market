@@ -1,25 +1,33 @@
 @extends('layouts.default')
 
-@section('title', 'Create a new property')
+@section('title', 'Add new property')
 
-@section('page-title')
-{{-- page-title go here --}}
-Create a new property
+@section('helper')
+{{-- filter go here --}}
 @stop
 
+
+
 @section('content')
-{{-- contents go here --}}
+    <h3>Add new property</h3>
+
+    {{-- contents go here --}}
 	{!! Form::open(array('url' => 'properties', 'files'=>true)) !!}
 	    
 	    @include('properties.partials.form', array('submitButtonText' => 'Add Property') )
 	    
 	{!! Form::close() !!}
+
+
+    
 @stop
 
 
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
         <script>
+        initWizard();
+
         google.maps.event.addDomListener(window, 'load', initAddress )
 
         function initAddress(){
