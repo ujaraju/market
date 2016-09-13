@@ -60,7 +60,7 @@
                         <hr>
 
                         <div class="action clearfix">
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button></li>
+                            <button type="button" class="btn btn-primary pull-right next-step">Next</button>
                         </div>
 
                     </div>
@@ -108,8 +108,8 @@
                         <hr>
 
                         <div class="action clearfix">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button></li>
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button></li>
+                            <button type="button" class="btn btn-primary prev-step">Previous</button>
+                            <button type="button" class="btn btn-primary pull-right next-step">Next</button>
                         </div>
                     </div>
                     {{-- Property Info Tab --}}
@@ -198,8 +198,8 @@
                         <hr>
 
                         <div class="action clearfix">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button></li>
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button></li>
+                            <button type="button" class="btn btn-primary prev-step">Previous</button>
+                            <button type="button" class="btn btn-primary pull-right next-step">Next</button>
                         </div>
 
                     </div>

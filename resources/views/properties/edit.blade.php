@@ -23,6 +23,7 @@
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
         <script>
+        initWizard();// tab wizard
 
         google.maps.event.addDomListener(window, 'load', initAddress )
 

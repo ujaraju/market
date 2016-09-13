@@ -1,6 +1,5 @@
 function initWizard() {
-
-    
+    console.log("wizard");
     //Wizard
     $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
