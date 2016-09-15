@@ -16,7 +16,7 @@
 		    	
 		    		@yield('page-title')
 		    		
-		    		<div class="container p-y-2">
+		    		<div class="container p-b-1">
 		    			@yield('content')
 		    		</div>
 		    	

@@ -1,12 +1,11 @@
 @extends('layouts.default')
 
-@section('title', 'Properties')
+@section('title', 'Search Result for: '.$searchTerm)
 
 @section('helper')
 {{-- filter go here --}}
 	@include('properties.partials.helper')	
 @stop
-
 
 @section('page-title')
 	<div class="container">

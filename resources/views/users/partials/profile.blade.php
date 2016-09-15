@@ -6,7 +6,7 @@
 	<div class="media p-y-2">
 		<div class="media-left">
 			<a href="{{ action('UsersController@show',[$user->id])}}">
-				<img class="media-object" src="{{url('/uploads/avatars/'.$user->avatar)}}" alt="">
+				<img class="media-object avatar" src="{{url('/uploads/avatars/'.$user->avatar)}}" alt="">
 			</a>
 	  	</div>
 		<div class="media-body">
@@ -19,7 +19,7 @@
 	    	<ul class="list-inline list-icon-buttons m-b-0">
 	    		<li><a href="mailto:{{$user->email}}"><i class="fa fa-envelope"></i></a></li>
 	    		@if ($user->phone != '')
-	    			<li><a href="#"><i class="fa fa-phone"></i></a></li>
+	    			<li><a href="tel:{{$user->phone}}"><i class="fa fa-phone"></i></a></li>
 	    		@endif
 	    	</ul>
 	  	</div>
@@ -33,7 +33,7 @@
 
 	<div class="media p-y-3">
 		<div class="media-left">
-			<img class="media-object" src="{{url('/uploads/avatars/'.$user->avatar)}}" alt="">
+			<img class="media-object avatar" src="{{url('/uploads/avatars/'.$user->avatar)}}" alt="">
 	  	</div>
 		<div class="media-body">
 	    	@if (Auth::check() )
@@ -53,7 +53,7 @@
 	    	<ul class="list-inline list-icon-buttons m-b-0">
 	    		<li><a href="mailto:{{$user->email}}"><i class="fa fa-envelope"></i></a></li>
 	    		@if ($user->phone != '')
-	    			<li><a href="#"><i class="fa fa-phone"></i></a></li>
+	    			<li><a href="tel:{{$user->phone}}"><i class="fa fa-phone"></i></a></li>
 	    		@endif
 	    	</ul>
 	  	</div>

@@ -50,8 +50,10 @@
             
 
             var properties = {!! $properties !!};
-            var propertyImages =  {!! json_encode($image_url) !!};
-    
+            var propertyImage =  {!! json_encode($image_name)!!};
+            var propertyImageUrl =  {!! json_encode($image_url) !!};
+
+            
 
 			var infowindow = new google.maps.InfoWindow;
 
@@ -60,6 +62,10 @@
 
 
 			for (i = 0; i < properties.length; i++) { 
+
+                var image = propertyImage[i]!=""? "{{url('/uploads/properties/small')}}/"+propertyImage[i]: propertyImageUrl[i];
+
+                //console.log(image);
 
 			    marker = new google.maps.Marker({
 			         position: new google.maps.LatLng(properties[i].lat, properties[i].lng),
@@ -70,7 +76,7 @@
 
                 var infoContent = 
 
-                                    "<img src='"+propertyImages[i]+"'/>"+
+                                    "<img src='"+image+"'/>"+
                                     "<strong>"+properties[i].title+ "</strong><br>" +
                                     "<span class='badge'>"+properties[i].price+ "<span><br>"
                                     ;

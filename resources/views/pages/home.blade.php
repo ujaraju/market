@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1">	
-					<h2 class="p-b-2">Search for your home sweet home at the places you want to dwell.</h2>
+					<h2 class="p-b-2">Search for your home sweet home at the place you want to dwell.</h2>
 				</div>
 				<div class="col-sm-6 col-sm-offset-3">		
 					@include('layouts.partials.search')
@@ -28,15 +28,19 @@
 
 @section('page-title')
 {{-- page-title go here --}}
-	<div class="text-center m-t-3">
+	<div class="text-center p-t-1 m-y-2">
 		<h3 class="m-b-1">LATEST PROPERTIES</h3>
-		<h4>Buy or rent your dwelling from thousands of avalable properties.</h4>
+		<h4>Buy your dwelling from thousands of avalable properties.</h4>
 	</div>
 @stop
 
 @section('content')
 {{-- contents go here --}}
 	@include('properties.partials.list-latest-properties')
+
+	<div class="text-center m-y-2">
+		<a class="btn btn-default" href="{{url('/properties')}}">View All</a>
+	</div>
 @stop
 
 

@@ -31,10 +31,22 @@ body {
 .border-bottom { border-bottom : 1px solid $gray-lighter; }
 .bg-white{ background: #fff;}
 
+
+
+
 .label{
    border-radius: 0; 
 } 
-   
+ 
+
+img.avatar {
+    background: $gray-light;
+    border-radius: 50%;
+    padding: 1px;
+    display: block
+}
+
+
 
  .navbar-default {
      background: #fff;
@@ -44,7 +56,10 @@ body {
      }
      .navbar-brand {
          font-size: 22px;
+         padding-top:7px;
      }
+
+    img.avatar{ width:40px; float:right; margin-left:5px; margin-top:-10px;}
  }
  
  .container {
@@ -55,7 +70,7 @@ body {
  
  .helper {
      padding: $padding-large-vertical 0;
-     border-bottom: 1px solid $gray-lighter;
+ 
  }
  
  .map {
@@ -127,18 +142,38 @@ body {
  .card {
      background: #fff;
      position: relative;
+     border:1px solid $gray-lighter;
+
+     > a{ overflow:hidden; position:relative; display:block;
+            &:after{ position:absolute;  content:" "; border:1px solid $gray-lighter;
+                display: block; z-index:1; left:15px; top:15px; opacity:0; transition:all 0.3s;
+                
+                width: -webkit-calc(100% - 30px); 
+                width: -moz-calc(100% - 30px); 
+                
+                height: -webkit-calc(100% - 30px);
+                height: -moz-calc(100% - 30px);
+
+            }
+
+        &:hover{
+            &:after{ opacity:0.5; }
+        }
+     }
+
      h4 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         a {
-        color: $gray-base;
+            color: $gray-base;
         }
      }
      hr{ border-color:#eee;}
 
      .label{ position: absolute; right:0px; bottom:20px;}
-     .card-content{ border:1px solid $gray-lighter}
+     .card-content{ border-top:1px solid $gray-lighter}
+
  }
  
  .media-left,
@@ -147,15 +182,7 @@ body {
      vertical-align: middle;
  }
  
- .media .media-left,
- .media .media-right {
-     img {
-         background: $gray-light;
-         border-radius: 50%;
-         padding: 5px;
-         display: block
-     }
- }
+
  
 
  
@@ -228,7 +255,7 @@ body {
          margin-bottom: 0;
          color: #fff;
      }
-     .links ul li { 
+     .links ul li {  
             padding:0;
             a{border-left:1px solid $gray-lighter; padding:0 10px 0 15px;}
             &:first-child a { border:none;  }
@@ -236,4 +263,23 @@ body {
  }
  .login{ max-width:360px;}
 
- @media (max-width: $screen-xs-max) {}
+
+
+
+
+ @media (max-width: $screen-sm-max) {
+
+    .navbar-form{ max-width:250px;}
+         
+}
+
+
+ @media (max-width: $screen-xs-max) {
+    .navbar-default img.avatar{ float:left; margin-left:0; margin-right:5px;}
+    .navbar-form{ margin-top:0; margin-bottom:0; border:0; padding-top:8px; padding-bottom:8px;}
+    .home .hero .call-to-action{
+        top: 20%;
+        h2{ font-size:22px;} 
+    }
+         
+}

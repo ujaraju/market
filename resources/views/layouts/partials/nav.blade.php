@@ -14,18 +14,19 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    swelldwell
+                    <img src="{{url('/img/logo.png')}}">
                 </a>
-            </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                
+
                 @if(! Request::is('/') )
                     {{-- dont show search in home page. search is in the hero. --}}
                     @include('layouts.partials.search')
                 @endif
-                     
 
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     
@@ -38,8 +39,9 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Hi, {{ Auth::user()->name }} 
+                                Hi, {{ strtok( Auth::user()->name ," ") }} 
                                 <span class="caret"></span>
+                                <img class="avatar" src="{{ url('/uploads/avatars/'.Auth::user()->avatar)}}">
                             </a>
 
                             <ul class="dropdown-menu" role="menu">

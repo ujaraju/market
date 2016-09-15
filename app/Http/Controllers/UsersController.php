@@ -65,23 +65,21 @@ class UsersController extends Controller
 
     public function update(UserRequest $request){
         
-        $user = Auth::user();
+            $user = Auth::user();
 
             $avatar = $request->file('avatar');
-            
             if( $avatar != ''){
                 $filename = $user->id."-".(str_replace(" ","-", $user->name)).'.'.$avatar->getClientOriginalExtension();
                 Img::make($avatar)->resize(75, 75)->save( public_path('/uploads/avatars/' . $filename ) );
                 $user->avatar = $filename;
             }
-
-            $password = $request->input('password');
-            $user->password = bcrypt($password);
-
             
-
+            $user->password = bcrypt($request->input('password'));
+            $user->phone = $request->input('phone');
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            
             $user->save();
-
 
             //$user->update($request->all());
 

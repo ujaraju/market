@@ -39,6 +39,23 @@ class PropertiesController extends Controller
     	return view('properties.index', compact('properties'));
     }
 
+    /**
+    * List all properties in map view.
+    *
+    * 
+    */
+    public function search(){
+        //$properties = Property::latest('published_at')->published()->get();
+
+        $searchTerm = \Request::get('whereTo'); //<-- we use global request to get the param of URI
+        //dd($whereTo);
+        $properties = Property::where('address','like','%'.$searchTerm.'%')
+        ->orderBy('published_at')
+        ->published()
+        ->paginate(20);
+
+        return view('properties.search', compact('properties', 'searchTerm'));
+    }
 
     /**
     * List all properties in map view.
@@ -49,12 +66,17 @@ class PropertiesController extends Controller
         $properties = Property::latest('published_at')->published()->get();
 
         $image_url = array();
+        $image_name = array();
         foreach($properties as $property) {
             $image_url[] = $property->images->first()->url;
+            $image_name[] = $property->images->first()->name;
         }
         //dd($images); // to see the contents
-        return view('properties.map', compact('properties','image_url'));
+        return view('properties.map', compact('properties','image_url', 'image_name'));
     }
+
+
+
 
 
 	/**
@@ -175,30 +197,34 @@ class PropertiesController extends Controller
         /*  TAKE CARE OF THE IMAGES upload and assign to the property */
             //$images = $request->file('images');
             foreach ($images as $image) {
-                $ext = $image->getClientOriginalExtension();            
-                //create a new filename sha1 version and date just incase of conflict 
-                $name = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
-                
-                $url = ('uploads/properties/' . $name);
-                $url_thumbnail= ('uploads/properties/thumbnail/' . $name);
-                $url_small= ('uploads/properties/small/' . $name);   
-                $url_medium = ('uploads/properties/medium/' . $name);        
-                
-                $move = Img::make($image->getRealPath())->save($url);
+                if($image!=''){
+                    $ext = $image->getClientOriginalExtension();            
+                    //create a new filename sha1 version and date just incase of conflict 
+                    $name = date('Y-m-d').'-'.sha1($image->getClientOriginalName()).'.'.$ext;
+                    
+                    $url = ('uploads/properties/' . $name);
+                    $url_thumbnail= ('uploads/properties/thumbnail/' . $name);
+                    $url_small= ('uploads/properties/small/' . $name);   
+                    $url_medium = ('uploads/properties/medium/' . $name);        
+                    
+                    $move = Img::make($image->getRealPath())->save($url);
 
-                $move = Img::make($image->getRealPath())->fit(200, 100)->save($url_thumbnail);
-                $move = Img::make($image->getRealPath())->fit(400, 200,function($constraint){$constraint->aspectRatio();})->save($url_small);
-                $move = Img::make($image->getRealPath())->fit(940, 480,function($constraint){$constraint->aspectRatio();})->save($url_medium);
-                //after the images uploaded, add them to the database 
-                if ($move) {
-                    $images = Image::create([
-                        'url' => url($url),
-                        'name' => $name,
-                    ]);
-                    //link the images to the property image pivot table
-                    $property->images()->detach([$images->id]); //detach any other images for update scenario
-                    $property->images()->attach([$images->id]); // attach new images
+                    $move = Img::make($image->getRealPath())->fit(200, 100)->save($url_thumbnail);
+                    $move = Img::make($image->getRealPath())->fit(400, 200,function($constraint){$constraint->aspectRatio();})->save($url_small);
+                    $move = Img::make($image->getRealPath())->fit(940, 480,function($constraint){$constraint->aspectRatio();})->save($url_medium);
+
+                    //after the images uploaded, add them to the database 
+                    if ($move) {
+                        $images = Image::create([
+                            'url' => url($url),
+                            'name' => $name,
+                        ]);
+                        //link the images to the property image pivot table
+                        $property->images()->detach([$images->id]); //detach any other images for update scenario
+                        $property->images()->attach([$images->id]); // attach new images
+                    }
                 }
+
             }
         /*  TAKE CARE OF THE IMAGES upload and assign to the property  */
     }

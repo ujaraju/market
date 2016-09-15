@@ -5,9 +5,9 @@
     		<div class="links">
     			<ul class="list-inline">
     			    <li><a href="<?php echo url('about'); ?>">About</a></li>
-    			    <li><a href="<?php echo url('contact'); ?>">Help</a></li>
-    			    <li><a href="<?php echo url('about'); ?>">Contact</a></li>
-    			    <li><a href="<?php echo url('contact'); ?>">Terms</a></li>
+    			    <li><a href="<?php echo url('help'); ?>">Help</a></li>
+    			    <li><a href="<?php echo url('contact'); ?>">Contact</a></li>
+    			    <li><a href="<?php echo url('terms'); ?>">Terms</a></li>
     			</ul>
     		</div>
             
@@ -22,7 +22,7 @@
             </div>
 
     		<address>
-    			© Copyright 2013
+    			© Copyright {{date('Y')}}
     		</address>
     		
 
@@ -39,10 +39,19 @@
         <script>
             function initWhereTo() {
                     // Create the autocomplete object, restricting the search to geographical
-                    // location types.
+                    // location types COUNTRY NEPAL (np).
+                    
                     autocomplete = new google.maps.places.Autocomplete(
-                        /** @type {!HTMLInputElement} */(document.getElementById('whereTo')),
-                        {types: ['geocode']});
+                        (
+                            document.getElementById('whereTo')// input field id
+                        ),
+                        {   types: ['geocode'],
+                            componentRestrictions: 
+                                {
+                                country: 'np',
+                                }
+                        }
+                    );
 
                     // When the user selects an address from the dropdown, populate the address
                     // fields in the form.

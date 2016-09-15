@@ -9,7 +9,7 @@
 
 
 @section('content')
-    <h3>Add new property</h3>
+    <h3 class="m-t-1">Add new property</h3>
 
     {{-- contents go here --}}
 	{!! Form::open(array('url' => 'properties', 'files'=>true)) !!}
@@ -47,7 +47,18 @@
             });
 
             //address searchbox stuffs  
-            var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+                    var searchBox = new google.maps.places.Autocomplete(
+                        (
+                            document.getElementById('address')// input field id
+                        ),
+                        {   types: ['geocode'],
+                            componentRestrictions: 
+                                {
+                                    country: 'np',
+                                }
+                        }
+                    );
+            //var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
             google.maps.event.addListener(searchBox, 'places_changed', function() {
                 var places = searchBox.getPlaces();
                 var bounds = new google.maps.LatLngBounds();

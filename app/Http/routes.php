@@ -35,6 +35,7 @@ Route::controllers ([
 
 
 Route::get  ('properties/map', 'PropertiesController@map');
+Route::get  ('search', 'PropertiesController@search');
 
 Route::resource('properties','PropertiesController');
 
@@ -60,6 +61,10 @@ Route::get  ('/', 'PagesController@home');
 Route::get  ('/home', 'PagesController@home');
 Route::get  ('/about', 'PagesController@about');
 Route::get  ('/contact', 'PagesController@contact');
+Route::get  ('/help', 'PagesController@help');
+Route::get  ('/terms', 'PagesController@terms');
+
+
 
 /*Dashboard Pages*/
 Route::get  ('/dashboard', 'UsersController@dashboard');

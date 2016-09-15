@@ -8,9 +8,9 @@
 @stop
 
 @section('content')
-<h3>Edit: {{ $property->title }} </h3>
+<h3 class="m-t-1">Edit: {{ $property->title }} </h3>
 {{-- contents go here --}}
-    <div class="m-y-3">
+    <div class="m-y-1">
 	{!! Form::model($property, array ('method' => 'PATCH', 'action' => ['PropertiesController@update', $property->id], 'files'=>true)) !!}
 	    
 	    @include('properties.partials.form', array('submitButtonText' => 'Update Product') )
@@ -23,7 +23,7 @@
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
         <script>
-        initWizard();// tab wizard
+        //initWizard();// tab wizard
 
         google.maps.event.addDomListener(window, 'load', initAddress )
 
@@ -50,7 +50,24 @@
 
 
             //address searchbox stuffs  
-            var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+                    var searchBox = new google.maps.places.Autocomplete(
+                        (
+                            document.getElementById('address')// input field id
+                        ),
+                        {   types: ['geocode'],
+                            componentRestrictions: 
+                                {
+                                country: 'np',
+                                }
+                        }
+                    );
+
+                    // When the user selects an address from the dropdown, populate the address
+                    // fields in the form.
+                    //autocomplete.addListener('place_changed');
+
+
+            //var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
             google.maps.event.addListener(searchBox, 'places_changed', function() {
                 var places = searchBox.getPlaces();
                 var bounds = new google.maps.LatLngBounds();

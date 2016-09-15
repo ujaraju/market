@@ -20,5 +20,15 @@ class PagesController extends Controller
     public function contact(){
        return view('pages.contact');
     } 
+    
+    public function help(){
+       return view('pages.help');
+    } 
+
+    public function terms(){
+       return view('pages.terms');
+    } 
+
+ 
 
 }

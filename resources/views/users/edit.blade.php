@@ -13,31 +13,36 @@
 <div class="m-y-2"> 
 {{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id), 'enctype'=>"multipart/form-data")) }}
 
-    <div class="form-group">
-        {{ Form::label('name', 'Name:') }}
-        {{ Form::text('name', null, array('class' => 'form-control')) }}
+    <div class="row">
+
+        <div class="form-group col-sm-4">
+            {{ Form::label('name', 'Name:') }}
+            {{ Form::text('name', null, array('class' => 'form-control')) }}
+        </div>
+
+        <div class="form-group col-sm-4">
+            {{ Form::label('email', 'Email:') }}
+            {{ Form::text('email', null, array('class' => 'form-control')) }}
+        </div>
+
+        <div class="form-group col-sm-4">    
+            {{ Form::label('password', 'Password:') }}
+            {{ Form::input('password','password', null, array('class' => 'form-control')) }}
+        </div>
+
     </div>
 
-    <div class="form-group">
-        {{ Form::label('email', 'Email:') }}
-        {{ Form::text('email', null, array('class' => 'form-control')) }}
-    </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            {{ Form::label('phone', 'Phone:') }}
+            {{ Form::text('phone', null, array('class' => 'form-control')) }}
+        </div>
 
-    <div class="form-group">    
-        {{ Form::label('password', 'Password:') }}
-        {{ Form::input('password','password', null, array('class' => 'form-control')) }}
+        <div class="form-group col-sm-4">
+            {{ Form::label('avatar', 'Avatar:') }}
+            {{ Form:: file('avatar', null, array('class' => 'form-control')) }}
+        </div>
     </div>
-
-    <div class="form-group">
-        {{ Form::label('phone', 'Phone:') }}
-        {{ Form::text('phone', null, array('class' => 'form-control')) }}
-    </div>
-
-    <div class="form-group">
-        {{ Form::label('avatar', 'Avatar:') }}
-        {{ Form:: file('avatar', null, array('class' => 'form-control')) }}
-    </div>
-
 
     <div class="form-group text-right">
         <a class="btn btn-link" href="{{ url('/dashboard') }}">Cancel</a>

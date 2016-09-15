@@ -1,6 +1,6 @@
 
       
-        <div class="wizard m-t-2">
+        <div class="wizard m-t-2 m-b-1">
             <div class="wizard-inner">
                 <div class="connecting-line"></div>
                 <ul class="nav nav-tabs" role="tablist">
@@ -11,31 +11,38 @@
                         </a>
                     </li>
 
-                    <li role="presentation" class="disabled">
+                    <li role="presentation">
                         <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                             Details
                         </a>
                     </li>
-                    <li role="presentation" class="disabled">
+                    <li role="presentation">
                         <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                             Images
                         </a>
                     </li>
-                    <li role="presentation" class="disabled">
+                    <li role="presentation">
                         <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
                             Features
                         </a>
                     </li>
-                    <li role="presentation" class="disabled">
+                    <li role="presentation">
                         <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                             Additional Features
                         </a>
                     </li>
+
+ 
+                    <li class="pull-right">
+                        {!! Form::submit( $submitButtonText, array('class' => 'btn btn-primary') ) !!}
+                    </li>
+                  
+
                 </ul>
             </div>
 
 
-                <div class="tab-content p-y-2">
+                <div class="tab-content p-t-2">
                     
                     <div class="tab-pane active" role="tabpanel" id="step1">
 
