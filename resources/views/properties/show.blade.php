@@ -79,7 +79,7 @@
 
 
 
-<div class="text-center border-bottom">
+<div class="text-center border-bottom m-b-2">
 	<div class="container">	
 		<div class="row row-outlined">
 			<div class="col-xs-6 col-sm-4 col-md-2 p-y-2">

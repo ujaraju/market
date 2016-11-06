@@ -67,12 +67,17 @@ class PropertiesController extends Controller
 
         $image_url = array();
         $image_name = array();
+        $category = array();
+        $propertyUrl = array();
+
         foreach($properties as $property) {
             $image_url[] = $property->images->first()->url;
             $image_name[] = $property->images->first()->name;
+            $category[] =  $property->categories[0]->name;
+            $propertyUrl[] =  action ('PropertiesController@show', [$property->id]) ;
         }
-        //dd($images); // to see the contents
-        return view('properties.map', compact('properties','image_url', 'image_name'));
+        //dd($category); // to see the contents
+        return view('properties.map', compact('properties','image_url', 'image_name', 'category', 'propertyUrl'));
     }
 
 

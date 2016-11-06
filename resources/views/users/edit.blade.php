@@ -10,6 +10,7 @@
 
 <h3>Edit Profile: {{ $user->name }} </h3>
 
+
 <div class="m-y-2"> 
 {{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id), 'enctype'=>"multipart/form-data")) }}
 
@@ -39,6 +40,9 @@
         </div>
 
         <div class="form-group col-sm-4">
+          
+            {{-- <img src="{{url('/uploads/avatars').'/'.$user->avatar}}" class="media-object avatar"/> --}}
+
             {{ Form::label('avatar', 'Avatar:') }}
             {{ Form:: file('avatar', null, array('class' => 'form-control')) }}
         </div>

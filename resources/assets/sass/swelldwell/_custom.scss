@@ -229,17 +229,18 @@ img.avatar {
      width: 370px!important;
      height: auto;
      overflow: hidden;
-     padding: 20px 10px;
+     padding: 20px 10px 0px 10px;
      img,
      p,
      h4 {
          padding: 0;
          margin: 0;
      }
-     > div > div > img {
+     > div > div > div > a > img {
          max-width: 350px;
          height: auto;
      }
+     .label{ position: absolute; right:10px; bottom: 20px}
  }
  
  .footer {

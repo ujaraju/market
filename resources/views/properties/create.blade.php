@@ -26,7 +26,7 @@
 @section('footer')
 {{-- additional footer content go here eg: javascript --}}
         <script>
-        initWizard();// tab wizard
+        //initWizard();// tab wizard
 
         google.maps.event.addDomListener(window, 'load', initAddress )
 
@@ -39,15 +39,9 @@
                 }
             );
 
-            //var infoWindow = new google.maps.InfoWindow();
-            var marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                draggable: true
-            });
 
-            //address searchbox stuffs  
-                    var searchBox = new google.maps.places.Autocomplete(
+
+        var autocomplete = new google.maps.places.Autocomplete(
                         (
                             document.getElementById('address')// input field id
                         ),
@@ -58,22 +52,48 @@
                                 }
                         }
                     );
-            //var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
-            google.maps.event.addListener(searchBox, 'places_changed', function() {
-                var places = searchBox.getPlaces();
-                var bounds = new google.maps.LatLngBounds();
-                var i, place;
+        autocomplete.bindTo('bounds', map);
 
-                for (i = 0; place = places[i]; i++) {
-                    bounds.extend(place.geometry.location);
+
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                draggable: true
+            });        
+        
+            autocomplete.addListener('place_changed', function() {
+                  //infowindow.close();
+                  marker.setVisible(false);
+                  var place = autocomplete.getPlace();
+                  
+
+                  if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                  }
+
+
+                 // If the place has a geometry, then present it on a map.
+                  if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                  } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);  // Why 17? Because it looks good.
+                  }
+
+
                     marker.setPosition(place.geometry.location);
-                }
-
-                map.fitBounds(bounds);
-                map.setZoom(15);
-
+                    marker.setVisible(true);
 
             });
+
+          
+          
+
 
             google.maps.event.addListener(marker, 'position_changed', function() {
                 var lat = marker.getPosition().lat();

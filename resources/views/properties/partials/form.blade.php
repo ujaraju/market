@@ -52,7 +52,7 @@
                             {!! Form::text('address', null, array('id'=>'address','class' => 'form-control','placeholder'=>'')) !!}
                         </div>
 
-                        <small>Move the marker below to pin point the location of the property</small>
+                        <small class="text-danger">Move the marker below to pin point the location of the property</small>
                         <div id="map-canvas" class="form-group" style="height:250px;"></div> 
 
                         <div class="form-group form-inline">

@@ -52,7 +52,8 @@
             var properties = {!! $properties !!};
             var propertyImage =  {!! json_encode($image_name)!!};
             var propertyImageUrl =  {!! json_encode($image_url) !!};
-
+            var propertyCategory=  {!! json_encode($category) !!};
+            var propertyUrl = {!! json_encode($propertyUrl) !!}
             
 
 			var infowindow = new google.maps.InfoWindow;
@@ -76,9 +77,10 @@
 
                 var infoContent = 
 
-                                    "<img src='"+image+"'/>"+
-                                    "<strong>"+properties[i].title+ "</strong><br>" +
-                                    "<span class='badge'>"+properties[i].price+ "<span><br>"
+                                    "<div><a href='"+propertyUrl[i]+"'><img src='"+image+"'/></a>"+
+                                    "<div class='card-content p-y-1'><a href='"+propertyUrl[i]+"'><strong>"+properties[i].title+ "</strong></a><br>" +
+                                    "<span>Rs. "+properties[i].price+ "</span><br>"+
+                                    "<span class='label label-success'>"+propertyCategory[i]+"</span></div></div>"
                                     ;
 
 			         return function() {
