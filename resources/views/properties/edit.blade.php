@@ -13,7 +13,7 @@
     <div class="m-y-1">
 	{!! Form::model($property, array ('method' => 'PATCH', 'action' => ['PropertiesController@update', $property->id], 'files'=>true)) !!}
 	    
-	    @include('properties.partials.form', array('submitButtonText' => 'Update Product') )
+	    @include('properties.partials.form', array('submitButtonText' => 'Update Property') )
 
 	{!! Form::close() !!}
     </div>

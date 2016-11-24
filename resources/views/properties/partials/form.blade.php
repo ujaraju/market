@@ -64,11 +64,6 @@
                         </div>
                         {{-- Location MAP --}}
                         
-                        <hr>
-
-                        <div class="action clearfix">
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button>
-                        </div>
 
                     </div>
                     {{-- Location tab --}}
@@ -112,12 +107,7 @@
 
                         </div>
 
-                        <hr>
 
-                        <div class="action clearfix">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button>
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button>
-                        </div>
                     </div>
                     {{-- Property Info Tab --}}
 
@@ -127,12 +117,6 @@
                             {{ Form::file('images[]', array('class' => ' ','multiple'=>true)) }}
                         </div>
 
-                        <hr>
-
-                        <div class="action clearfix">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button></li>
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button></li>
-                        </div>
 
                     </div>
 
@@ -202,12 +186,7 @@
                             </div>    
                         </div>    
                         
-                        <hr>
 
-                        <div class="action clearfix">
-                            <button type="button" class="btn btn-primary prev-step">Previous</button>
-                            <button type="button" class="btn btn-primary pull-right next-step">Next</button>
-                        </div>
 
                     </div>
 
@@ -233,12 +212,6 @@
                             {!! Form::textarea('around_property', null, array('class' => 'form-control', 'rows'=>'3')) !!}
                         </div>
 
-                        <hr>
-
-                        
-                        <div class="form-group text-right">
-                            {!! Form::submit( $submitButtonText, array('class' => 'btn btn-primary') ) !!}
-                        </div>
 
                     </div>
                     

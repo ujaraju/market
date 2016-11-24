@@ -30,7 +30,7 @@
 </div>
 
 
-{{-- this JS applioes to all the pages in the application --}}
+{{-- this JS applies to all the pages in the application --}}
     <script src="{{ url(elixir('js/all.js')) }}"></script>
     {{-- Google map api with places library --}}
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGlt5bb-aJdkbMZAOGAMhMHQ5ZUGPL0s&libraries=places" type="text/javascript"></script>
@@ -45,7 +45,7 @@
                         (
                             document.getElementById('whereTo')// input field id
                         ),
-                        {   types: ['geocode'],
+                        {   types: ['(cities)'],
                             componentRestrictions: 
                                 {
                                 country: 'np',
@@ -60,6 +60,6 @@
             google.maps.event.addDomListener(window, 'load', initWhereTo )
         </script>
     @endif
-{{-- this JS applioes to all the pages in the application --}}
+{{-- this JS applies to all the pages in the application --}}
 
 @yield ('footer')
