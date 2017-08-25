@@ -1,3 +1,15 @@
+##Thesis project at Touro College - Web and Multimedia Design 
+
+Project title: SwellDwell 
+
+It is a real estate website built in PHP + MySQL [Laravel], HTML5 + CSS3 + Jquery [Bootstrap]
+
+
+
+
+
+
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
