@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1">	
-					<h2 class="p-b-2">Search for your home sweet home at the place you want to dwell.</h2>
+					<h2 class="p-b-2">Your <i>home sweet home</i> is only a few clicks away</h2>
 				</div>
 				<div class="col-sm-6 col-sm-offset-3">		
 					@include('layouts.partials.search')
