@@ -1,3 +1,4 @@
+<h2>SwellDwell</h2>
 <h3>Thesis project at Touro College - Web and Multimedia Design </h3>
 
 Project title: SwellDwell 
